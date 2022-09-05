@@ -1,0 +1,94 @@
+body {
+    font-size: 20px;
+    margin: -8.1px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+#navbar {
+    height: 100%;
+    margin: 0;
+    background-color: #8CD50A;
+    width: 7.5%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: left;
+}
+
+.logo {
+    margin-bottom: 54px;
+}
+
+.iconos {
+    margin-bottom: 30px;
+}
+
+.line {
+    width: 94px;
+    height: 2px;
+    margin-bottom: 30px;
+    background-color: #4A20D6;
+}
+
+#welcome {
+    float: right;
+    width: 92.5%;
+    height: 100%;
+
+}
+
+.icon {
+    float: left;
+    padding-right: 15px;
+    margin-top: 25px;
+}
+
+.head {
+    margin-left: 100px;
+    margin-top: 140px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #4A20D6;
+    font-weight: normal;
+    font-family: Oswald, sans-serif;
+}
+
+h3{
+    color: #4A20D6;
+    font-weight: normal;
+
+}
+
+hr {
+    float: left;
+    width: 90%;
+}
+
+.opciones {    
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+}
+
+.cuadro {
+    width: 200px;
+    height: 269px;
+    margin-right: 40px;
+    border-radius: 15px;
+    background-color: #8CD50A;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
