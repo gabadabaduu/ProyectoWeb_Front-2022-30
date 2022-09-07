@@ -12,12 +12,9 @@ import Swal from 'sweetalert2';
 })
 export class RegistreseComponent implements OnInit {
   registroForm: FormGroup =  new FormGroup({});
-  UsuarioServicesService: any;
   usuario: Usuario = new Usuario();
 
-  constructor(private _formBuilder: FormBuilder, private router: Router) { 
-    
-  }
+  constructor(private _formBuilder: FormBuilder, private router: Router, private _usuarioService: UsuarioServicesService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -32,22 +29,33 @@ export class RegistreseComponent implements OnInit {
   }
 
   create(){
-    this.usuario.nombre = this.registroForm.value.nombre;
-    this.usuario.apellido = this.registroForm.value.apellido;
-    this.usuario.correo = this.registroForm.value.correo;
-    this.usuario.contrasena = this.registroForm.value.contrasena;
-    this.UsuarioServicesService.saveEmployee(this.usuario).subscribe(
-      (respuesta: Object) => {
-        Swal.fire({
-          title: 'Registro exitoso',
-          text: 'Se ha registrado correctamente',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
-        this.router.navigate(['']);
-      }
-    );
-
+    this.usuario.id=this.id?.value;
+    this.usuario.nombre = this.nombre?.value;
+    this.usuario.apellido = this.apellido?.value;
+    this.usuario.correo = this.correo?.value;
+    this.usuario.contrasena = this.contrasena?.value;
+    console.log(this.usuario);
+    this._usuarioService.save( this.usuario)
+    .subscribe(data=>this.verifiedResponse() ) ;
+  }
+  verifiedResponse(){
+    Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});
+    
+  }
+  get nombre(){
+    return this.registroForm .get('nombre');
+  }
+  get apellido(){
+    return this.registroForm .get('apellido');
+  }
+  get correo(){
+    return this.registroForm .get('correo');
+  }
+  get contrasena(){
+    return this.registroForm .get('contrasena');
+  }
+  get id(){
+    return this.registroForm .get('id');
   }
 
 

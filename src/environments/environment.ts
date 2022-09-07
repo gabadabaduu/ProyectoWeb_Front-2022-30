@@ -10,8 +10,13 @@ function crearURLAPIBase(path: any){
   return (path);
 }
 
-export const URL_Usuario={
-  urlGetSave: crearURLAPIBase("/registro")
+function signInURLBase(path: any){
+  return (path);
+}
+
+export const URLUsuario={
+  urlSave: crearURLAPIBase("/registros"),
+  urlLogin: signInURLBase("")
 }
 /*
  * For easier debugging in development mode, you can import the following file
