@@ -58,6 +58,9 @@
   width: 401px;
   height: 45px;
   outline: none;
+  font-size: 14px;
+  padding-left: 10px;
+  font-family: 'open sans', sans-serif;
 }
 
 a {
@@ -73,7 +76,7 @@ a {
 ::placeholder {
   color: rgb(168, 168, 168);
   font-family: 'open sans', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 

@@ -5,8 +5,6 @@
     margin: -8.1px;
 }
 
-
-
 .welcome{     
     float: right;
     width: 92.5%;
@@ -17,8 +15,6 @@
     flex-direction: column;
 }
 
-
-
 .head{
     width: 100%;
     height: 392px;
@@ -28,6 +24,7 @@
     flex-direction: column;    
     background-color: #8CD50A;
 }
+
 .welcome .head h1{
     font-family: 'Oswald', sans-serif;
     font-size: 56px;
@@ -44,6 +41,7 @@
     color: #4A20D6;
     font-weight: 600;
 }
+
 .welcome .head input[type="search"]{
     height: 39px;
     width: 559px;
@@ -53,7 +51,9 @@
     border: none;
     margin-top: 15px;
     outline: none;
-    
+    font-size: 16px;
+    padding-left: 20px;  
+    font-family: 'open sans', sans-serif;  
 }
 
 ::placeholder{
@@ -75,16 +75,66 @@
     float: left; 
 }
 
+.contenido h1{
+    font-family: 'open sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #4A20D6;
+    font-weight: bolder;
+}
+
 .cuadro{   
     border-radius: 15px; 
     width: 448px;
     height: 322px;
     margin: 0 auto;
-    background-color: #dbe9f5;
 }
 
 .contacto{
     float: right;
     width: 50%;
     height: 100%;    
+}
+
+.cuadro p{
+    font-family: 'open sans', sans-serif;
+    font-size: 16px;      
+    padding-bottom: 15px;
+    
+    border-bottom: #4A20D6 1px solid;
+}
+.cuadro p:last-child{
+    border-bottom: none;
+}
+.cuadro .cuadro-der{
+    margin: 0 auto;
+    float: left;
+    width: 50%;
+    height: 100%;
+    
+    
+}
+
+.cuadro .cuadro-izq{
+    margin: 0 auto;    
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.cuadro button[type="submit"] {
+    background-color: #8CD50A;
+    border: none;
+    border-radius: 5px;
+    width: 167px;
+    height: 29px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Roboto';   
+    cursor: pointer;
+    margin-top: 45px;
+}
+.svg{
+    padding-top: 80px;
+    width: 107px;
 }
