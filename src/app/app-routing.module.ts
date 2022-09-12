@@ -11,6 +11,8 @@ import { SoyEmpresaInteresadaInfoComponent } from './page/soy-empresa-interesada
 import { CotizadorComponent } from './page/cotizador/cotizador.component';
 import { DocumentosPortalEmpleadoComponent } from './page/documentos-portal-empleado/documentos-portal-empleado.component';
 import { DocumentosDesprendComponent } from './page/documentos-desprend/documentos-desprend.component';
+import { DocumentosLiquidComponent } from './page/documentos-liquid/documentos-liquid.component';
+import { DocumentosCertificacionesComponent } from './page/documentos-certificaciones/documentos-certificaciones.component';
 
 
 //Rutas de  navegación
@@ -25,8 +27,9 @@ const routes: Routes = [
   {  path: 'soy-login-empresa-home', component: SoyEmpresaInteresadaHomeComponent },
   {  path: 'interesada', component: SoyEmpresaInteresadaInfoComponent },
   {  path: 'cortizador', component: CotizadorComponent },
-  {  path: 'documentos-desprend', component: DocumentosDesprendComponent }
-
+  {  path: 'documentos-desprend', component: DocumentosDesprendComponent },
+  {  path: 'documentos-liquid', component: DocumentosLiquidComponent },
+  {  path: 'documentos-certificado', component: DocumentosCertificacionesComponent }
 ];
 
 @NgModule({

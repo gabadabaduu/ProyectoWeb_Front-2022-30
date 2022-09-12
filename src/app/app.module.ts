@@ -21,6 +21,8 @@ import { NavbarVerticalComponent } from './page/navbar-vertical/navbar-vertical.
 import { DocumentosPortalEmpleadoComponent } from './page/documentos-portal-empleado/documentos-portal-empleado.component';
 import { DocumentosDesprendComponent } from './page/documentos-desprend/documentos-desprend.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { DocumentosLiquidComponent } from './page/documentos-liquid/documentos-liquid.component';
+import { DocumentosCertificacionesComponent } from './page/documentos-certificaciones/documentos-certificaciones.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { ProfileComponent } from './page/profile/profile.component';
     DocumentosPortalEmpleadoComponent,
     DocumentosDesprendComponent,
     ProfileComponent,
+    DocumentosLiquidComponent,
+    DocumentosCertificacionesComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,5 +15,11 @@ export class DocumentosPortalEmpleadoComponent implements OnInit {
   GotoDocumentosDesprend() {
     this._router.navigate(['documentos-desprend']);
   }
+  GotoDocumentosLiquid() {
+    this._router.navigate(['documentos-liquid']);
+  }
+  GotoDocumenosCertificado() {
+    this._router.navigate(['documentos-certificado']);
+  }
 
 }

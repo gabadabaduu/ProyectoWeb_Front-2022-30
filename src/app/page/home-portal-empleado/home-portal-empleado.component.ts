@@ -16,8 +16,5 @@ export class HomePortalEmpleadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  irADocumentos(){
-    this._router.navigate(['documentos-portal-empleado']); 
-  }
 
 }
