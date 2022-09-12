@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioServicesService } from 'src/app/services/usuario-services.service';
 import { Observable } from 'rxjs';
 
-
 @Component({
-  selector: 'app-page-index',
-  templateUrl: './page-index.component.html',
-  styleUrls: ['./page-index.component.css']
+  selector: 'app-soy-login-trabajador-home',
+  templateUrl: './soy-login-trabajador-home.component.html',
+  styleUrls: ['./soy-login-trabajador-home.component.css']
 })
-export class PageIndexComponent implements OnInit {
+
+export class SoyLoginTrabajadorHomeComponent implements OnInit {
+
   registroForm: FormGroup =  new FormGroup({});
   usuario: Usuario = new Usuario();
   constructor(private _formBuilder: FormBuilder, private _router: Router, private _usuarioService: UsuarioServicesService) { 
@@ -65,4 +66,5 @@ export class PageIndexComponent implements OnInit {
   get contrasena(){
     return this.registroForm .get('contrasena');
   }
+
 }

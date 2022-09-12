@@ -1,0 +1,73 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div id="identicador">
+    <h6>Soy empresa - Ingreso al portal</h6>
+  </div>
+  <div class="login">
+    <img src="assets/pexels-karolina-grabowska-5908719.jpg" id="karolina">
+    <div class="form-header">
+      <h1>Ingresar</h1>
+    </div>
+    <div class="cuadro">
+      <div class="Login">
+        <div class="login-form">
+          <form (ngSubmit)="login()">
+            <div class="form-group">
+              <label for="email">Email</label><br>
+            <input type="text" class="form-control" name="email" placeholder="  test1@gmail.com" [(ngModel)]="usuario.correo">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Contraseña</label><br>
+              <input type="password" class="form-control" name="pwd" placeholder="  **************" [(ngModel)]="usuario.contrasena">
+            </div>
+          </form>
+
+          <div class="form-group">
+            <div class="form-forget">
+              <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+          <div class="form-group">
+
+            <button type="submit" class="boton1"  (click)="login()"><label
+                class="textButton"> Ingresar al Portal</label>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 1L17 9L10 17M1 9H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+
+
+          </div>
+          <div class="form-group">
+            <button type="submit" class="boton2"  (click)="irARegistro()"><label
+                class="textButton">Registrese</label><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 1L17 9L10 17M1 9H17H1Z" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <app-footer></app-footer>
+
+</div>
+  
+
+  
+
+
+
+
+
+
+
+
+<!---
+-->

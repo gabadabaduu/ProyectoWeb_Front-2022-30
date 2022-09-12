@@ -1,0 +1,300 @@
+.container {
+    margin: -8.1px;
+}
+
+.identicador {
+    height: 50px;
+    background-color: #8CD50A;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-size: 19px;
+    padding-left: 9.6%;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #1157FB;
+    font-family: 'Oswald';
+    font-size: 56px;
+}
+
+p {
+    font-family: 'Open Sans';
+    font-size: 20px;
+}
+
+.imagen {
+    width: 45%;
+}
+
+.img {
+    float: left;
+    width: 100%;
+}
+
+.text {
+    padding-top: 100px;
+    text-align: center;
+
+
+    width: 55%;
+    margin-top: 50px;
+}
+
+.parrafo {
+    margin: 0 auto;
+    width: 566px;
+    text-align: justify;
+}
+
+button[type="submit"] {
+    background-color: #8CD50A;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    height: 54px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto';
+    margin-top: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.items{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.service {
+    width: 100%;
+    height: 621px;
+    background-color: #1157FB;    
+    text-align: center;    
+}
+
+.service h1 {
+    color: white;
+    font-family: 'Oswald';    
+    font-size: 52px;    
+    margin-top: 0;
+    padding-top: 70px;
+}
+
+.services {
+    width: 16%;
+    float: left;    
+    margin-right: 70px;  
+    color: white;
+}
+
+
+
+.services p {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    
+}
+
+.services h3 {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 900;
+    
+}
+
+.svg {
+    width: 74px;
+    height: 94px;    
+}
+.title{   
+    margin-bottom: 58px;
+}
+
+.cotizar{
+    width: 100%;
+    height: 482px;        
+    display: flex;
+    justify-content: center;
+}
+
+.cuadro-der{
+    float: left;
+    font-size: 52px;
+    color: #1157FB;
+    font-family: 'Opens Sans';
+    width: 546px;
+    font-style: italic;
+    text-align: right;
+    margin-right: 50px;
+    padding-top: 120px;
+}
+
+
+
+.cuadro-izq{
+    float: right;
+    width: 40%;
+    font-size: 20px;
+    font-family: 'Opens Sans';
+    width: 423px;
+    padding-top: 160px;
+    text-align: left;
+}
+
+button[type="submit"] {
+    background-color: #8CD50A;
+    border: none;
+    border-radius: 5px;
+    width: 245px;
+    height: 51px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: bold;   
+    cursor: pointer;   
+}
+
+.satisfaccion{    
+    text-align: center;
+    justify-content: center;
+}
+
+.clientes{
+    width: 80%;
+    margin: 0 auto;
+    height: 570px;        
+    display: flex;
+    justify-content: center;
+}
+
+.cliente{
+    width: 25%;
+    height: 572px;
+    float: left;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.cliente h3{
+    font-family: 'Open Sans';
+    font-weight: bolder;
+    
+}
+
+.cliente p{
+    font-family: 'Open Sans';
+    margin-bottom: 0;
+}
+
+.svg2{
+    width: 200px;
+    height: 200px;
+}
+.svgSagaro{
+    width: 348px;
+    margin-bottom: 52px;
+}
+
+h1{
+    font-family: 'Oswald';
+    font-weight: bold;
+    font-size: 56px;
+    color: #8CD50A;
+    
+}
+
+.formulario{
+    width: 100%;
+    
+    height: 908px;
+    display: flex;    
+    
+}
+
+.form {    
+    width: 70%;
+    height: 810px;  
+    background-color: #8CD50A;  
+    color: white;
+    font-family: 'Open Sans';
+    display:flex;
+    justify-content: center;    
+}
+
+.form-con{
+    width: 100%;
+    padding-left: 100px;
+    height: 908px;   
+}
+
+.formulario h1{
+    color: white;
+
+    margin-top: 0;
+    
+}
+
+::placeholder {
+    color: rgb(175, 172, 172);
+  }
+  
+.form-group{
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 15px;
+}
+
+.form-control{
+    border:none;
+    border-radius: 5px;
+    width: 566px;
+    height: 59px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Open Sans';
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.form-control2{
+    border:none;
+    border-radius: 5px;
+    width: 566px;
+    height: 134px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form button[type="submit"] {
+    background-color: #1157FB;
+    border: none;
+    border-radius: 5px;
+    width: 196px;
+    height: 44px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto';   
+    cursor: pointer;
+}
+
+.form .info{
+   
+    position: absolute;
+    width: 67.9%;
+    font-weight: bold;
+    color: #1157FB; 
+    margin-top: 67px;
+    
+    
+}
+.img3{
+    position: relative;
+    height: 908px;
+}
+

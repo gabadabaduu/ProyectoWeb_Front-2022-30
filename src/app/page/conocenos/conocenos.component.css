@@ -1,0 +1,178 @@
+.container{
+    margin: -8.1px;    
+    width: 100%;
+}
+
+.identicador {
+    height: 50px;
+    background-color: #8CD50A;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-size: 19px;
+    padding-left: 9.6%;
+}
+.body{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+}
+
+h1{
+    color: #1157FB;
+    font-family: 'Oswald';
+    font-size: 56px;
+}
+
+p{
+    font-family: 'Open Sans';
+    font-size: 20px;
+}
+.imagen{
+    width: 45%;
+}
+.img {    
+    float: left;
+    width: 100%;
+}
+
+.text {
+    padding-top: 100px;
+    text-align: center;
+    
+    
+    width: 55%;
+    margin-top: 50px;    
+}
+
+.parrafo{
+    margin: 0 auto;
+    width: 566px;
+    text-align: justify;
+}
+
+button[type="submit"] {
+    background-color: #8CD50A;
+    border: none;
+    border-radius: 5px;
+    width: 254px;
+    height: 51px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto';    
+    margin-top: 50px;   
+    cursor: pointer;   
+}
+
+.MisionAndVision{
+    width: 100%;    
+    display: flex;    
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 70px;
+    
+}
+
+.cuadro{
+    width: 722px;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1157FB;
+    margin-right: 30px;
+    border-radius: 29px;    
+}
+
+.mision{   
+    color: white;
+    position: absolute;
+    width: 522px;
+    text-align: justify;
+    font-size: 24px;
+}
+
+.mision h1{
+    color: white;
+    text-align: center;
+}
+
+.valuesCompani{
+    width: 80%;    
+    margin: 0 auto;
+    
+    padding-left: 10%; 
+    padding-right: 10%;
+}
+
+.values{
+    width: 100%;  
+         
+    padding-bottom: 100px;
+    
+}
+
+
+.circle{     
+    width: 137px;
+    height: 137px;  
+    border-radius:50%;
+    border: solid 7px #8CD50A;
+    overflow:hidden; /* Evitar que el contenido se visualice fuera del borde*/
+    float: left;
+    margin-right: 80px;   
+    
+}
+
+.svg{
+    width: 10%;     
+     
+    padding-top: 12px;
+    padding-left: 7px;
+}
+
+.img2{
+    width: 123px;
+}
+.img3{
+    width: 123px;
+    padding-top: 10px;
+}
+.img4{
+    width: 105px;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+.img5{
+    width: 100px;
+    padding-left: 14px;    
+}
+.img6{
+    width: 100px;
+    padding-left: 12px;    
+}
+.img7{
+    width: 117px;
+    padding-top: 20px;
+    padding-left: 2px;    
+}
+
+.contenido{
+    width: 100%;   
+    padding-top: 10px;  
+}
+
+h2{
+    font-family: 'Oswald';
+    font-size: 32px;   
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+p{
+    font-family: 'Open Sans';
+    font-size: 20px;
+    margin-top: 0px;
+}

@@ -1,0 +1,67 @@
+*{
+    font-size: 22px;
+    font-family: 'Open Sans'
+}
+
+
+.footer {    
+    background-color: #8DD603;    
+    width: 100%;
+    height: 424px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contenedor {
+    width: 100%;
+    padding-top: 28px;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .contenido {
+    padding-top: 28px;
+    width: 100%;
+    display: flex;
+  }
+  
+  .columna {
+    width: 16%;
+    float: left;
+  }
+  .columna2{
+    width: 36%;    
+  }
+  .img {
+    padding-top: 22px;
+    padding-left: 140px;
+  }
+  
+  p {
+    padding-top: 120px;
+    padding-left: 190px;
+    font-style: oblique;
+
+  }
+  
+  ul {
+    list-style-type: none;    
+    padding: 0;  
+  }
+
+  h3{
+    font-size: 20px;
+    margin-bottom: -20px;
+  }
+  
+  .chat{
+    position: absolute;
+    left: 93%;
+    margin-top: -72px;
+  }
+
+  /* Fontibón */
+
+
+
+

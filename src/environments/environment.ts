@@ -13,10 +13,14 @@ function crearURLAPIBase(path: any){
 function signInURLBase(path: any){
   return (path);
 }
+function TodosInURLBase(path: any){
+  return (path);
+}
 
 export const URLUsuario={
   urlSave: crearURLAPIBase("/registros"),
-  urlLogin: signInURLBase("")
+  urlLogin: signInURLBase(""),
+  urlAll: TodosInURLBase('/user')
 }
 /*
  * For easier debugging in development mode, you can import the following file

@@ -10,7 +10,6 @@ import { Usuario } from 'src/app/model/usuario';
 
 export class UsuarioServicesService {
   public http_server_base: any = "http://localhost:8080";
-
   constructor(private _httpclient: HttpClient) {
   }
 
@@ -24,10 +23,15 @@ export class UsuarioServicesService {
 
   login(usuario: Usuario) {
     console.log(usuario);
-    return this._httpclient.post<Response>(this.http_server_base , usuario)
+    return this._httpclient.post<Response>(this.http_server_base, usuario)
   }
 
   controlExcepcion(_error: HttpErrorResponse) {
     return throwError(() => new Error(_error.message));
+  }
+
+  getAll(){
+    return  this._httpclient.get<Response>( this.http_server_base +  URLUsuario.urlAll)  
+            .pipe(  catchError( this.controlExcepcion )  ) ;
   }
 }
