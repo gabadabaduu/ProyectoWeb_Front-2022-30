@@ -13,6 +13,12 @@ export class NavbarVerticalComponent implements OnInit {
   ngOnInit(): void {
   }
   irADocumentos(){
+    this._router.navigate(['documentos-portal-empleado']); 
+  }
+  irAFormacion(){
+    this._router.navigate(['contactos']); 
+  }
+  irAVacantes(){
     this._router.navigate(['contactos']); 
   }
 

@@ -1,0 +1,25 @@
+.profile{
+    height: 60px;
+    width: 100%;    
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-top: 20px;
+    cursor: pointer;    
+    
+}
+
+.svg{
+    float: right;
+    margin-left: 10px;
+    margin-right: 40px;
+    
+}
+
+.circle{
+    float: left;
+    background-color: #8CD50A;
+    height: 58px;
+    width: 58px;
+    border-radius: 50%;
+}

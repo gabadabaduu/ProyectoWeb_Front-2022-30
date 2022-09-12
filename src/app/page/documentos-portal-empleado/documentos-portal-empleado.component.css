@@ -1,0 +1,77 @@
+.container{
+    width: 100.8%;
+    height: auto;
+    margin:-8.1px;
+}
+
+.welcome {
+    float: right;
+    width: 92%;
+    height: 100%;
+}
+
+.icon {
+    float: left;
+    padding-right: 15px;
+    margin-top: 60px;
+}
+
+.head {
+    width: 90%;
+    padding-left: 150px;
+    
+}
+
+.welcome .head p{
+    width: 100%;
+    font-size: 16px;    
+    color: #000000;
+    font-family: 'open sans';
+}
+
+.welcome .head p:nth-child(2){
+    font-size: 20px;
+    font-weight: bold;
+    color: #4A20D6;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4A20D6;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #4A20D6;
+    font-weight: normal;
+    font-family: 'Oswald';
+}
+
+h3{
+    color: #4A20D6;
+    font-family: 'open sans';
+
+}
+
+hr {
+    
+    float: left;
+    width: 90%;
+}
+
+.opciones {    
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+}
+
+.cuadro {
+    width: 200px;
+    height: 269px;
+    margin-right: 40px;
+    border-radius: 15px;
+    background-color: #8CD50A;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}

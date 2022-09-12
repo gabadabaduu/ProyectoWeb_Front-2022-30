@@ -1,13 +1,39 @@
 
 .container{
-    width: 100%;
+    width: 100.8%;
     height: 100%;
     margin: -8.1px;
 }
 
+.profile{
+    height: 80px;
+    width: 100%;  
+    background-color: #8CD50A;  
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-top: 20px;
+    cursor: pointer;
+    
+}
+
+.svgProfile{
+    float: right;
+    margin-left: 10px;
+    margin-right: 40px;
+   
+}
+
+.circle{
+    float: left;
+    background-color: #ffffff;
+    height: 58px;
+    width: 58px;
+    border-radius: 50%;
+}
 .welcome{     
     float: right;
-    width: 92.5%;
+    width: 92%;     
     height: 100%;       
     display: flex;
     justify-content: center;
@@ -16,8 +42,8 @@
 }
 
 .head{
-    width: 100%;
-    height: 392px;
+    width: 100%;    
+    height: 252px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,6 +161,6 @@
     margin-top: 45px;
 }
 .svg{
-    padding-top: 80px;
+    padding-top: 10px;
     width: 107px;
 }

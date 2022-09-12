@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomePortalEmpleadoComponent } from './page/home-portal-empleado/home-portal-empleado.component';
 import { RegistreseComponent } from './page/registrese/registrese.component';
 import { CommonModule } from '@angular/common';
-import { ListDocumentosComponent } from './page/list-documentos/list-documentos.component';
 import { NgxPaginationModule } from "ngx-pagination";
 import { FooterComponent } from './page/footer/footer.component';
 import { NavbarComponent } from './page/navbar/navbar.component';
@@ -19,13 +18,15 @@ import { SoyEmpresaInteresadaHomeComponent } from './page/soy-empresa-interesada
 import { SoyEmpresaInteresadaInfoComponent } from './page/soy-empresa-interesada-info/soy-empresa-interesada-info.component';
 import { CotizadorComponent } from './page/cotizador/cotizador.component';
 import { NavbarVerticalComponent } from './page/navbar-vertical/navbar-vertical.component';
+import { DocumentosPortalEmpleadoComponent } from './page/documentos-portal-empleado/documentos-portal-empleado.component';
+import { DocumentosDesprendComponent } from './page/documentos-desprend/documentos-desprend.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,         
     HomePortalEmpleadoComponent, 
     RegistreseComponent,
-    ListDocumentosComponent,
     FooterComponent,
     NavbarComponent,
     SoyLoginTrabajadorHomeComponent,
@@ -36,6 +37,9 @@ import { NavbarVerticalComponent } from './page/navbar-vertical/navbar-vertical.
     SoyEmpresaInteresadaInfoComponent,
     CotizadorComponent,
     NavbarVerticalComponent,
+    DocumentosPortalEmpleadoComponent,
+    DocumentosDesprendComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

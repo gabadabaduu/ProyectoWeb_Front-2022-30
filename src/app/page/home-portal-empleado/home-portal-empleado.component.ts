@@ -17,7 +17,7 @@ export class HomePortalEmpleadoComponent implements OnInit {
   }
 
   irADocumentos(){
-    this._router.navigate(['contactos']); 
+    this._router.navigate(['documentos-portal-empleado']); 
   }
 
 }

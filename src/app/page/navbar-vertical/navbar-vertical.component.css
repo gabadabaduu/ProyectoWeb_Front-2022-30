@@ -1,9 +1,7 @@
-.navbar{  
-    height:100%;
-    margin:0;  
+.navbar{ 
     background-color: #8CD50A;    
-    width: 150px;
-    position: fixed;
+    width: 8%;
+    height: 980px;    
     display:flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +15,7 @@
 
 .iconos{
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .line{
