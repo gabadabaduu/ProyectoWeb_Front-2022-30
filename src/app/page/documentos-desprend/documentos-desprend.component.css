@@ -1,0 +1,87 @@
+.container{
+    margin: -8.1px;
+    width: 100.8%;
+}
+.welcome {
+    float: right;
+    width: 92%;
+    
+}
+
+.icon {
+    float: left;
+    padding-right: 15px;
+    padding-top: 60px;
+}
+
+.head {
+    width: 90%;
+    padding-left: 150px;    
+}
+
+.welcome .head p{
+    width: 470px;
+    font-size: 16px;    
+    color: #000000;
+    font-family: 'open sans';
+}
+
+.welcome .head p:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    color: #4A20D6;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4A20D6;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #4A20D6;
+    font-weight: normal;
+    font-family: 'Oswald';
+}
+.active{
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 143px;
+    height: 45px;
+    color: #4A20D6;
+    font-size: 16px;
+    font-family: 'Roboto';   
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.btn {
+    background-color: #8CD50A;
+    border: none;
+    border-radius: 5px;
+    width: 143px;
+    height: 45px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Roboto';   
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.nomina{
+    width: 470px;
+    height: 40px;
+    margin-top: 20px;
+    border: none;
+    font-family: 'open sans';
+    font-size: 14px;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.generar{
+    margin-left: 130px;
+}
+
+

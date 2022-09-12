@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-documentos-portal-empleado',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentosPortalEmpleadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+  }
+  GotoDocumentosDesprend() {
+    this._router.navigate(['documentos-desprend']);
   }
 
 }
