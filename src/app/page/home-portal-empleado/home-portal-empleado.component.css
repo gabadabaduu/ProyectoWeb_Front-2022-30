@@ -1,43 +1,13 @@
-body{
-    font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: -8.1px;
-}
 
 .container{
     width: 100%;
     height: 100%;
+    margin: -8.1px;
 }
 
-#navbar{  
-    height:100%;
-    margin:0;  
-    background-color: #8CD50A;    
-    width: 7.5%;
-    position: fixed;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;  
-    float: left;      
-}
 
-.logo{ 
-    margin-bottom: 54px;
-}
 
-.iconos{
-    margin-bottom: 30px;
-}
-
-.line{
-    width: 94px;
-    height: 2px;
-    margin-bottom: 30px;
-    background-color: #4A20D6;
-}
-
-#welcome{     
+.welcome{     
     float: right;
     width: 92.5%;
     height: 100%;       
@@ -46,6 +16,8 @@ body{
     align-items: center;
     flex-direction: column;
 }
+
+
 
 .head{
     width: 100%;
@@ -56,17 +28,38 @@ body{
     flex-direction: column;    
     background-color: #8CD50A;
 }
+.welcome .head h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 56px;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: white
+}
 
-.boton{
+.welcome .head p{
+    font-family: 'open sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #4A20D6;
+    font-weight: 600;
+}
+.welcome .head input[type="search"]{
     height: 39px;
     width: 559px;
     border-radius: 50px ;
     border-color: #8CD50A;
     background-color: #fff;
+    border: none;
+    margin-top: 15px;
+    outline: none;
+    
 }
 
 ::placeholder{
-    color: #ccc;
+    color: rgb(153, 149, 149);
+    font-family: 'open sans', sans-serif;
+    font-size: 16px;
 }
 
 .contenido{

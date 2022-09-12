@@ -18,6 +18,7 @@ import { ConocenosComponent } from './page/conocenos/conocenos.component';
 import { SoyEmpresaInteresadaHomeComponent } from './page/soy-empresa-interesada-home/soy-empresa-interesada-home.component';
 import { SoyEmpresaInteresadaInfoComponent } from './page/soy-empresa-interesada-info/soy-empresa-interesada-info.component';
 import { CotizadorComponent } from './page/cotizador/cotizador.component';
+import { NavbarVerticalComponent } from './page/navbar-vertical/navbar-vertical.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CotizadorComponent } from './page/cotizador/cotizador.component';
     SoyEmpresaInteresadaHomeComponent,
     SoyEmpresaInteresadaInfoComponent,
     CotizadorComponent,
+    NavbarVerticalComponent,
   ],
   imports: [
     BrowserModule,

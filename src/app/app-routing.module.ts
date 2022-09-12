@@ -9,6 +9,7 @@ import { ContactoComponent } from './page/contacto/contacto.component';
 import { ConocenosComponent } from './page/conocenos/conocenos.component';
 import { SoyEmpresaInteresadaHomeComponent } from './page/soy-empresa-interesada-home/soy-empresa-interesada-home.component';
 import { SoyEmpresaInteresadaInfoComponent } from './page/soy-empresa-interesada-info/soy-empresa-interesada-info.component';
+import { CotizadorComponent } from './page/cotizador/cotizador.component';
 
 
 //Rutas de  navegación
@@ -21,7 +22,8 @@ const routes: Routes = [
   {  path: 'contacto', component: ContactoComponent },
   {  path: 'conocenos', component: ConocenosComponent},
   {  path: 'soy-login-empresa-home', component: SoyEmpresaInteresadaHomeComponent },
-  {  path: 'interesada', component: SoyEmpresaInteresadaInfoComponent }
+  {  path: 'interesada', component: SoyEmpresaInteresadaInfoComponent },
+  {  path: 'cortizador', component: CotizadorComponent }
 
 ];
 

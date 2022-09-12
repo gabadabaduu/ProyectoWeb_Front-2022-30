@@ -1,0 +1,27 @@
+.navbar{  
+    height:100%;
+    margin:0;  
+    background-color: #8CD50A;    
+    width: 150px;
+    position: fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    float: left;      
+}
+
+.logo{ 
+    margin-bottom: 54px;
+}
+
+.iconos{
+    margin-bottom: 30px;
+}
+
+.line{
+    width: 94px;
+    height: 2px;
+    margin-bottom: 30px;
+    background-color: #4A20D6;
+}
