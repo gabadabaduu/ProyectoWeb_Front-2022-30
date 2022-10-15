@@ -1,0 +1,150 @@
+*, *:before, *:after {
+    box-sizing:content-box;
+    margin-top: 10px;
+    
+}
+.contenedor{
+    margin: -8.1px;
+    width: 100%;    
+}
+
+.welcome {
+    float: right;
+    width: 92%;
+}
+
+.icon {
+    float: left;
+    padding-right: 15px;
+    padding-top: 60px;
+}
+
+.head {
+    width: 91.5%;    
+    padding-left: 150px; 
+    
+}
+
+.welcome .head p{
+    width: 82%;    
+    font-size: 16px;    
+    color: #000000;
+    font-family: 'open sans';
+    
+}
+
+.welcome .head p:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    color: #4A20D6;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4A20D6;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #4A20D6;
+    font-weight: normal;
+    font-family: 'Oswald';
+    padding-top: 45px;
+}
+.progreso{
+    width: 82%;    
+    overflow: hidden;
+}
+
+.progreso .progreso-text{
+    float:left;
+    width: 27.3333%;       
+    height: 70px;  
+    margin-right: 80px;
+    margin-top: 0;     
+}
+
+.progreso .progreso-text:last-child{
+    margin-right: 0;
+}
+
+.progreso .progreso-text  p{    
+    margin-top: -10px;
+    font-size: 16px;   
+    font-family: 'open sans';  
+    
+}
+
+.progreso .progreso-text  p:nth-child(2){
+    padding-top: 17px;
+
+    color: #4A20D6;
+    font-weight: 900;
+    margin-bottom: 0;    
+}
+
+.cursos{
+    position: relative;
+    width: 82%;
+    height: auto;
+}
+
+.svgProgreso{
+    margin-right: 20px;
+    float: left;
+}
+
+.card-body{
+    background-color: #8CD50A;
+    padding-top: 0;
+    margin-top: 0;
+    border-bottom-left-radius:  15px;
+    border-bottom-right-radius:  15px;    
+}
+
+.play{
+    float: left;
+    margin-right: 15px;
+}
+
+
+.card{
+    float: left;
+    margin-right: 50px;
+    width: 250.25px;
+    height: 322px;
+    cursor: pointer;  
+    margin-bottom: 100px; 
+}
+
+.card-body p:last-child{
+    padding-top: 20px;    
+}
+
+.card-body p:nth-child(2){
+    font-size: 16px;   
+    font-family: 'open sans';
+    
+}
+
+
+.card-body h3{
+    color: #4A20D6;    
+    font-family: 'open sans';
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.card-img-top{
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

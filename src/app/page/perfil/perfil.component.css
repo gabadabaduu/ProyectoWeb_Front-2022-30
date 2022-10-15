@@ -1,0 +1,46 @@
+.container{
+    margin: -8.1px;
+    width: 100.8%;
+}
+
+.welcome {
+    float: right;
+    width: 92%;
+    max-width: 92%;
+}
+
+.icon {
+    float: left;
+    padding-right: 15px;
+    padding-top: 60px;
+}
+
+.head {    
+    width: 91%;    
+    padding-left: 150px;     
+}
+
+.welcome .head p{
+    width: 82%;    
+    font-size: 16px;    
+    color: #000000;
+    font-family: 'open sans';
+    
+}
+
+.welcome .head p:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    color: #4A20D6;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4A20D6;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: bold;
+    color: #4A20D6;
+    font-weight: normal;
+    font-family: 'Oswald';
+    
+}

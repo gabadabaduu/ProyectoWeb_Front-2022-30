@@ -23,11 +23,14 @@ import { DocumentosDesprendComponent } from './page/documentos-desprend/document
 import { ProfileComponent } from './page/profile/profile.component';
 import { DocumentosLiquidComponent } from './page/documentos-liquid/documentos-liquid.component';
 import { DocumentosCertificacionesComponent } from './page/documentos-certificaciones/documentos-certificaciones.component';
+import { FormacionPortalEmpleadoComponent } from './page/formacion-portal-empleado/formacion-portal-empleado.component';
+import { PerfilComponent } from './page/perfil/perfil.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent,         
-    HomePortalEmpleadoComponent, 
+    AppComponent,
+    HomePortalEmpleadoComponent,
     RegistreseComponent,
     FooterComponent,
     NavbarComponent,
@@ -44,6 +47,8 @@ import { DocumentosCertificacionesComponent } from './page/documentos-certificac
     ProfileComponent,
     DocumentosLiquidComponent,
     DocumentosCertificacionesComponent,
+    FormacionPortalEmpleadoComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,10 +56,10 @@ import { DocumentosCertificacionesComponent } from './page/documentos-certificac
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule, 
+    CommonModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

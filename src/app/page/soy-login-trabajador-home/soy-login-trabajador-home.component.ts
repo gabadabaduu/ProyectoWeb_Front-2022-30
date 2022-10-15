@@ -14,57 +14,59 @@ import { Observable } from 'rxjs';
 
 export class SoyLoginTrabajadorHomeComponent implements OnInit {
 
-  registroForm: FormGroup =  new FormGroup({});
-  usuario: Usuario = new Usuario();
-  constructor(private _formBuilder: FormBuilder, private _router: Router, private _usuarioService: UsuarioServicesService) { 
+  loginData = {
+    "username": '',
+    "password": ''
+  }
+
+  constructor(
+    private _router: Router,
+    private usuarioService: UsuarioServicesService,
+    ) {
 
   }
 
   ngOnInit(): void {
-    this.createForm();
-  }
-
-  createForm(){
-    this.registroForm = this._formBuilder.group({
-      correo: ['', Validators.required],
-      contrasena: ['', Validators.required],      
-    }); 
-  }
-
-  
-  verifiedResponse(){
-    Swal.fire({icon: 'error', title: 'Usuario no encontrado', text: 'Por favor verifique sus datos'});
-    
-  }
-  login (){ 
-      this._usuarioService.login(this.usuario).subscribe(
-        data => {console.log("Recibido"), this._router.navigate(['home-portal-empleado'])} ,
-        error => {console.log("Error"), this.verifiedResponse()}
-      );
 
   }
 
+  verifiedResponse() {
+    Swal.fire({ icon: 'error', title: 'Usuario no encontrado', text: 'Por favor verifique sus datos' });
 
-  irAHomePortalEmpleado(){
-    this.usuario.correo = this.correo?.value;
-    this.usuario.contrasena = this.contrasena?.value;
-    console.log(this.usuario);
-    this._usuarioService.login( this.usuario).subscribe(
-      data => {
-        this._router.navigate(['home-portal-empleado']);
+  }
+
+  login() {
+      this.usuarioService.generateToken(this.loginData).subscribe(
+      (data:any) => {
+        console.log(data);
+        this.usuarioService.loginUser(data.token);
+        this.usuarioService.getCurrentUser().subscribe((user:any) => {
+          this.usuarioService.setUser(user);
+          console.log(user);
+
+          this._router.navigate(['/home-portal-empleado']);
+        })
+      },(error) => {
+        console.log(error);
       }
-    )    
+    )
   }
 
-  irARegistro(){
+
+
+
+
+
+
+
+
+
+
+
+
+  irARegistro() {
     this._router.navigate(['registro']);
   }
 
-  get correo(){
-    return this.registroForm .get('correo');
-  }
-  get contrasena(){
-    return this.registroForm .get('contrasena');
-  }
 
 }
