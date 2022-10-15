@@ -27,10 +27,10 @@ export class UsuarioServicesService {
 
   constructor(private http: HttpClient) {
   }
-
+ 
 
   save(usuario: Usuario) {
-    console.log(usuario);
+    //console.log(usuario);
     return this.http.post<Response>(this.http_server_base + URLUsuario.urlSave, usuario);
   }
 

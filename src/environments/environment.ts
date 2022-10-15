@@ -18,7 +18,7 @@ function TodosInURLBase(path: any){
 }
 
 export const URLUsuario={
-  urlSave: crearURLAPIBase("/registros"),
+  urlSave: crearURLAPIBase("/usuarios/registros"),
   urlLogin: signInURLBase(""),
   urlAll: TodosInURLBase('/user')
 }

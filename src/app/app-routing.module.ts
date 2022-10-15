@@ -18,18 +18,18 @@ import { DocumentosCertificacionesComponent } from './page/documentos-certificac
 //Rutas de  navegación
 const routes: Routes = [
   {  path: '',   component: IndexComponent },
-  {  path: 'home-portal-empleado', component: HomePortalEmpleadoComponent },
-  {  path: 'documentos-portal-empleado', component: DocumentosPortalEmpleadoComponent },
-  {  path: 'registro', component: RegistreseComponent },
-  {  path: 'soy-login-trabajador-home', component: SoyLoginTrabajadorHomeComponent },
-  {  path: 'contacto', component: ContactoComponent },
-  {  path: 'conocenos', component: ConocenosComponent},
-  {  path: 'soy-login-empresa-home', component: SoyEmpresaInteresadaHomeComponent },
-  {  path: 'interesada', component: SoyEmpresaInteresadaInfoComponent },
-  {  path: 'cortizador', component: CotizadorComponent },
-  {  path: 'documentos-desprend', component: DocumentosDesprendComponent },
-  {  path: 'documentos-liquid', component: DocumentosLiquidComponent },
-  {  path: 'documentos-certificado', component: DocumentosCertificacionesComponent }
+  {  path: 'home-portal-empleado', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-portal-empleado', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'registro', component: RegistreseComponent ,  pathMatch : 'full'},
+  {  path: 'soy-login-trabajador-home', component: SoyLoginTrabajadorHomeComponent ,  pathMatch : 'full'},
+  {  path: 'contacto', component: ContactoComponent ,  pathMatch : 'full'},
+  {  path: 'conocenos', component: ConocenosComponent,  pathMatch : 'full'},
+  {  path: 'soy-login-empresa-home', component: SoyEmpresaInteresadaHomeComponent ,  pathMatch : 'full'},
+  {  path: 'interesada', component: SoyEmpresaInteresadaInfoComponent ,  pathMatch : 'full'},
+  {  path: 'cortizador', component: CotizadorComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-desprend', component: DocumentosDesprendComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-liquid', component: DocumentosLiquidComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-certificado', component: DocumentosCertificacionesComponent ,  pathMatch : 'full'}
 ];
 
 @NgModule({

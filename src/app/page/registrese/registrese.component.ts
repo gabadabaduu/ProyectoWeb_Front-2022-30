@@ -19,6 +19,7 @@ export class RegistreseComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
   }
+
   createForm(){
     this.registroForm = this._formBuilder.group({
       nombre: ['', Validators.required],
@@ -39,9 +40,9 @@ export class RegistreseComponent implements OnInit {
     .subscribe(data=>this.verifiedResponse() ) ;
   }
   verifiedResponse(){
-    Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});
-    
+    Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});    
   }
+
   get nombre(){
     return this.registroForm .get('nombre');
   }
