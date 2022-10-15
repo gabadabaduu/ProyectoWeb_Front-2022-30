@@ -18,8 +18,8 @@ export class NavbarVerticalComponent implements OnInit {
   GoToADocumentos(){
     this._router.navigate(['documentos-portal-empleado']); 
   }
-  irAFormacion(){
-    this._router.navigate(['contactos']); 
+  GoToFormacion(){
+    this._router.navigate(['formacion']); 
   }
   irAVacantes(){
     this._router.navigate(['contactos']); 
