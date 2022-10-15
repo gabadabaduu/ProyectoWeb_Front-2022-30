@@ -33,8 +33,9 @@ export class RegistreseComponent implements OnInit {
     this.usuario.id=this.id?.value;
     this.usuario.nombre = this.nombre?.value;
     this.usuario.apellido = this.apellido?.value;
-    this.usuario.correo = this.correo?.value;
-    this.usuario.contrasena = this.contrasena?.value;
+    this.usuario.email = this.correo?.value;
+    this.usuario.password = this.contrasena?.value;
+    this.usuario.username = this.correo?.value;
     console.log(this.usuario);
     this._usuarioService.save( this.usuario)
     .subscribe(data=>this.verifiedResponse() ) ;
