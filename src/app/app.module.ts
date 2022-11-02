@@ -26,6 +26,7 @@ import { DocumentosCertificacionesComponent } from './page/documentos-certificac
 import { FormacionPortalEmpleadoComponent } from './page/formacion-portal-empleado/formacion-portal-empleado.component';
 import { PerfilComponent } from './page/perfil/perfil.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
+import { DatosPersonalesComponent } from './page/datos-personales/datos-personales.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { authInterceptorProviders } from './services/auth.interceptor';
     DocumentosCertificacionesComponent,
     FormacionPortalEmpleadoComponent,
     PerfilComponent,
+    DatosPersonalesComponent,
   ],
   imports: [
     BrowserModule,

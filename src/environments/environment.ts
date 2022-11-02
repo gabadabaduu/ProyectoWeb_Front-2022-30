@@ -17,10 +17,37 @@ function TodosInURLBase(path: any){
   return (path);
 }
 
+function ActualizarURLBase(path: any){
+  return (path);
+}
+
+function EliminarURLBase(path: any){
+  return (path);
+}
+
+function urlId(path: any){
+  return (path);
+}
+
+function urlDocumentoC(path: any){
+  return (path);
+}
+
+function urlDocumentoCER(path: any){
+  return (path);
+}
+
+
 export const URLUsuario={
+  urlId: crearURLAPIBase("/usuarios/getUser"),
   urlSave: crearURLAPIBase("/usuarios/registros"),
+  urlUpdate: ActualizarURLBase("/usuarios/actualizar"),
+  urlDelete: EliminarURLBase("/usuarios/eliminar"),
   urlLogin: signInURLBase(""),
-  urlAll: TodosInURLBase('/user')
+  urlTodos: TodosInURLBase("/usuarios/todos"),
+  urlDocumentoC: urlDocumentoC("/usuarios/contrato"),
+  urlDocumentoCER: urlDocumentoCER("/usuarios/certificado"),
+  
 }
 /*
  * For easier debugging in development mode, you can import the following file

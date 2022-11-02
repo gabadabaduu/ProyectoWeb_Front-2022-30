@@ -14,14 +14,15 @@ import { DocumentosDesprendComponent } from './page/documentos-desprend/document
 import { DocumentosLiquidComponent } from './page/documentos-liquid/documentos-liquid.component';
 import { DocumentosCertificacionesComponent } from './page/documentos-certificaciones/documentos-certificaciones.component';
 import { FormacionPortalEmpleadoComponent } from './page/formacion-portal-empleado/formacion-portal-empleado.component';
+import { DatosPersonalesComponent } from './page/datos-personales/datos-personales.component';
 
 
 //Rutas de  navegación
 const routes: Routes = [
   
   {  path: '',   component: IndexComponent },
-  {  path: 'home-portal-empleado', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
-  {  path: 'documentos-portal-empleado', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'home-portal-empleado/:id', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-portal-empleado/:id', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
   {  path: 'registro', component: RegistreseComponent ,  pathMatch : 'full'},
   {  path: 'soy-login-trabajador-home', component: SoyLoginTrabajadorHomeComponent ,  pathMatch : 'full'},
   {  path: 'contacto', component: ContactoComponent ,  pathMatch : 'full'},
@@ -32,7 +33,8 @@ const routes: Routes = [
   {  path: 'documentos-desprend', component: DocumentosDesprendComponent ,  pathMatch : 'full'},
   {  path: 'documentos-liquid', component: DocumentosLiquidComponent ,  pathMatch : 'full'},
   {  path: 'documentos-certificado', component: DocumentosCertificacionesComponent ,  pathMatch : 'full'},
-  {  path: 'formacion', component: FormacionPortalEmpleadoComponent ,  pathMatch : 'full'}
+  {  path: 'formacion/:id', component: FormacionPortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'datospersonales/:id', component: DatosPersonalesComponent ,  pathMatch : 'full'}
 
 ];
 

@@ -44,7 +44,7 @@ export class SoyLoginTrabajadorHomeComponent implements OnInit {
           this.usuarioService.setUser(user);
           console.log(user);
 
-          this._router.navigate(['/home-portal-empleado']);
+          this._router.navigate(['/home-portal-empleado',user.id]);
         })
       },(error) => {
         console.log(error);

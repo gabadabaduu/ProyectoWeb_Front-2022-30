@@ -13,6 +13,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+                "devextreme-angular",
+                "devextreme",
+                "@firebase",
+                "@angular/fire",
+                "devexpress-richedit",
+                "x-data-spreadsheet"
+            ],
             "outputPath": "dist/proyecto",
             "index": "src/index.html",
             "main": "src/main.ts",

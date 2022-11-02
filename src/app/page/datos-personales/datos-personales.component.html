@@ -1,0 +1,46 @@
+<div class="container">
+    <app-navbar-vertical></app-navbar-vertical>
+    <div class="welcome">
+        <h1 class="title">Modificar Datos Personales</h1>
+
+        <form [formGroup]="forma">
+            <section class="form-register">
+
+                <label>Correo: </label>
+
+                <input type="text" formControlName="correo" class="form-control col-md-6" placeholder="Email"
+                    [ngClass]="(forma.get('correo')!.touched  || forma.get('correo')!.dirty  ) && forma.get('correo')!.errors ? 'is-invalid' : '' " /><br><br>
+                <label>Apellido: </label>
+                <input type="text" formControlName="apellido" class="form-control col-md-6" placeholder="Apellido"
+                    [ngClass]="(forma.get('apellido')!.touched  || forma.get('apellido')!.dirty  ) && forma.get('apellido')!.errors ? 'is-invalid' : '' " /><br><br>
+                <label>Username </label>
+                <input type="text" formControlName="username" class="form-control col-md-6" placeholder="Username"
+                    [ngClass]="(forma.get('username')!.touched  || forma.get('username')!.dirty  ) && forma.get('username')!.errors ? 'is-invalid' : '' " /><br><br>
+                <label>Contraseña: </label>
+                <input type="text" formControlName="password" class="form-control col-md-6" placeholder="Password"
+                    [ngClass]="(forma.get('password')!.touched  || forma.get('password')!.dirty  ) && forma.get('password')!.errors ? 'is-invalid' : '' " /><br><br>
+            </section>
+        </form>        
+
+        <button type="summit" (click)="Modificar()">Modificar</button> <br><br>
+
+        <form (ngSubmit)="Eliminar()">
+            <div class="form-group">
+                <label for="ID">Escriba el correo del usuario a eliminar</label>
+                <input type="text" class="form-control" id="id" name="id" [(ngModel)]="eliminarData.id"
+                    required><br><br>
+
+
+            </div>
+            <button type="summit" (click)="Eliminar()">Eliminar</button>
+        </form>
+
+       
+
+        
+
+
+    </div>
+
+
+</div>

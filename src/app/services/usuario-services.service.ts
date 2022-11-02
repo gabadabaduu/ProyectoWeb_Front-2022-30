@@ -28,7 +28,32 @@ export class UsuarioServicesService {
 
   constructor(private http: HttpClient) {
   }
- 
+  
+  getId(id:any){
+    return this.http.get<Usuario>(this.http_server_base + URLUsuario.urlId + "/" + id);
+  }
+
+  actualizar (Usuario: Usuario) {
+    return this.http.put<Response>(this.http_server_base + URLUsuario.urlUpdate, Usuario);
+  }
+
+  eliminar (id: number) {    
+      return this.http.delete<Response>(this.http_server_base + URLUsuario.urlDelete + "/"+ id);
+  }
+
+  mostrar(){
+    return this.http.get<Usuario []>(this.http_server_base + URLUsuario.urlTodos);
+  }
+
+  Contrato(id: number) {
+    return this.http.get<Response>(this.http_server_base + URLUsuario.urlDocumentoC + "/"+ id);
+  }
+
+  Certificado(id: number) {
+    return this.http.get<Response>(this.http_server_base + URLUsuario.urlDocumentoCER + "/"+ id);
+  }
+
+  
 
   save(usuario: Usuario) {
     //console.log(usuario);
@@ -83,5 +108,8 @@ export class UsuarioServicesService {
       return null;
     }
   }
+
+  
+  
 
 }
