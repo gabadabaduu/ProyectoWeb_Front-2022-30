@@ -37,6 +37,10 @@ function urlDocumentoCER(path: any){
   return (path);
 }
 
+function urlDocumentoD(path: any){
+  return (path);
+}
+
 
 export const URLUsuario={
   urlId: crearURLAPIBase("/usuarios/getUser"),
@@ -47,6 +51,7 @@ export const URLUsuario={
   urlTodos: TodosInURLBase("/usuarios/todos"),
   urlDocumentoC: urlDocumentoC("/usuarios/contrato"),
   urlDocumentoCER: urlDocumentoCER("/usuarios/certificado"),
+  urlDocumentoD: urlDocumentoD("/usuarios/desprendible"),
   
 }
 /*

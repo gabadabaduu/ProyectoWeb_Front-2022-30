@@ -50,4 +50,14 @@ export class DocumentosPortalEmpleadoComponent implements OnInit {
     );
   }
 
+  Desprendible() {
+    this._usuarioService.isLoggedIn();
+    console.log(this.id);
+    this._usuarioService.Desprendible(this.id).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
+  }
+
 }

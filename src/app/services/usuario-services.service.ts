@@ -53,6 +53,10 @@ export class UsuarioServicesService {
     return this.http.get<Response>(this.http_server_base + URLUsuario.urlDocumentoCER + "/"+ id);
   }
 
+  Desprendible (id: number) {
+    return this.http.get<Response>(this.http_server_base + URLUsuario.urlDocumentoD + "/"+ id);
+  }
+
   
 
   save(usuario: Usuario) {
