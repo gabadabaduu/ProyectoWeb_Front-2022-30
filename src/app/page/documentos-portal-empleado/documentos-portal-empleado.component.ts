@@ -15,7 +15,7 @@ export class DocumentosPortalEmpleadoComponent implements OnInit {
   constructor(private _router: Router, private _ar: ActivatedRoute, private _usuarioService: UsuarioServicesService) { }
 
   ngOnInit(): void {
-    this.id = this._ar.snapshot.paramMap.get('id');
+    
   }
 
   GotoDocumentosDesprend() {
@@ -30,34 +30,6 @@ export class DocumentosPortalEmpleadoComponent implements OnInit {
     this._router.navigate(['documentos-certificado']);
   }
 
-  DescargarContraro() {
-    this._usuarioService.isLoggedIn();
-    console.log(this.id);
-    this._usuarioService.Contrato(this.id).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-  }
-
-  DescargarCertificado() {
-    this._usuarioService.isLoggedIn();
-    console.log(this.id);
-    this._usuarioService.Certificado(this.id).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-  }
-
-  Desprendible() {
-    this._usuarioService.isLoggedIn();
-    console.log(this.id);
-    this._usuarioService.Desprendible(this.id).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-  }
+  
 
 }

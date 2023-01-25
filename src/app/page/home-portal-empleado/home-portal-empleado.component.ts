@@ -16,28 +16,11 @@ export class HomePortalEmpleadoComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.id = this._ar.snapshot.paramMap.get('id');
-    this.verDATOS(this.id);
-       
-      
+  ngOnInit(): void {   
 
   }
 
-  verDATOS(id: any) {   
-    this._usuarioService.getId(id)   
-      .subscribe({
-        next: (data) =>{ this.showUsuario( data )}
-      }) ;
-  }
-
-  showUsuario(datos: any) {
-    this._usuarioService.isLoggedIn();
-    this.usuario3 = datos;
-    console.log(this.usuario3);
-   
-    
-  }
+  
   
 
   

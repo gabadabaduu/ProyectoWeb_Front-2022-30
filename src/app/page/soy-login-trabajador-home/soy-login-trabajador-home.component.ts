@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioServicesService } from 'src/app/services/usuario-services.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-soy-login-trabajador-home',
@@ -14,15 +12,7 @@ import { Observable } from 'rxjs';
 
 export class SoyLoginTrabajadorHomeComponent implements OnInit {
 
-  loginData = {
-    "username": '',
-    "password": ''
-  }
-
-  constructor(
-    private _router: Router,
-    private usuarioService: UsuarioServicesService,
-    ) {
+  constructor(    private _router: Router       ) {
 
   }
 
@@ -36,34 +26,8 @@ export class SoyLoginTrabajadorHomeComponent implements OnInit {
   }
 
   login() {
-      this.usuarioService.generateToken(this.loginData).subscribe(
-      (data:any) => {
-        console.log(data);
-        this.usuarioService.loginUser(data.token);
-        this.usuarioService.getCurrentUser().subscribe((user:any) => {
-          this.usuarioService.setUser(user);
-          console.log(user);
-
-          this._router.navigate(['/home-portal-empleado',user.id]);
-        })
-      },(error) => {
-        console.log(error);
-      }
-    )
+      this._router.navigate(['home-portal-empleado']);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
   irARegistro() {
     this._router.navigate(['registro']);
   }

@@ -10,7 +10,7 @@ describe('DatosPersonalesComponent', () => {
   let service: UsuarioServicesService;
   let httpMock: HttpClientTestingModule;
   let usuario: Usuario;
-
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],

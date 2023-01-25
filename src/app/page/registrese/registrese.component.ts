@@ -14,51 +14,24 @@ export class RegistreseComponent implements OnInit {
   registroForm: FormGroup =  new FormGroup({});
   usuario: Usuario = new Usuario();
 
-  constructor(private _formBuilder: FormBuilder, private router: Router, private _usuarioService: UsuarioServicesService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.createForm();
+    
   }
 
   createForm(){
-    this.registroForm = this._formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      correo: ['', Validators.required],
-      contrasena: ['', Validators.required],      
-    }); 
+     
   }
 
   create(){
-    this.usuario.id=this.id?.value;
-    this.usuario.nombre = this.nombre?.value;
-    this.usuario.apellido = this.apellido?.value;
-    this.usuario.email = this.correo?.value;
-    this.usuario.password = this.contrasena?.value;
-    this.usuario.username = this.correo?.value;
-    console.log(this.usuario);
-    this._usuarioService.save( this.usuario)
-    .subscribe(data=>this.verifiedResponse() ) ;
+    
   }
   verifiedResponse(){
     Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});    
   }
 
-  get nombre(){
-    return this.registroForm .get('nombre');
-  }
-  get apellido(){
-    return this.registroForm .get('apellido');
-  }
-  get correo(){
-    return this.registroForm .get('correo');
-  }
-  get contrasena(){
-    return this.registroForm .get('contrasena');
-  }
-  get id(){
-    return this.registroForm .get('id');
-  }
+  
 
 
   

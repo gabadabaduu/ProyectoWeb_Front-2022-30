@@ -57,10 +57,10 @@
         <form [formGroup]="registroForm" >
             <section class="form-register">
                     <h4>Formulario Registro</h4>
-                    <input class="controls" type="text" formControlName="nombre" placeholder="Ingrese su Nombre" [ngClass]="(registroForm.get('nombre')!.touched  || registroForm.get('nombre')!.dirty  ) && registroForm.get('nombre')!.errors ? 'is-invalid' : '' " required>
-                    <input class="controls" type="text" formControlName="apellido" placeholder="Ingrese su Apellido" [ngClass]="(registroForm.get('apellido')!.touched  || registroForm.get('apellido')!.dirty  ) && registroForm.get('apellido')!.errors ? 'is-invalid' : '' " required>
-                    <input class="controls" type="email" formControlName="correo" placeholder="Ingrese su Correo" [ngClass]="(registroForm.get('correo')!.touched  || registroForm.get('correo')!.dirty  ) && registroForm.get('correo')!.errors ? 'is-invalid' : '' " required>
-                    <input class="controls" type="password" formControlName="contrasena" placeholder="Ingrese su Contraseña" [ngClass]="(registroForm.get('contrasena')!.touched  || registroForm.get('contrasena')!.dirty  ) && registroForm.get('contrasena')!.errors ? 'is-invalid' : '' " required>
+                    <input class="controls" type="text" formControlName="nombre" placeholder="Ingrese su Nombre" >
+                    <input class="controls" type="text" formControlName="apellido" placeholder="Ingrese su Apellido" >
+                    <input class="controls" type="email" formControlName="correo" placeholder="Ingrese su Correo" >
+                    <input class="controls" type="password" formControlName="contrasena" placeholder="Ingrese su Contraseña" >
                     <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
                     <input class="botons" type="submit" value="Registrar" (click)="create()">
                     <p><a href="#">¿Ya tengo Cuenta?</a></p>

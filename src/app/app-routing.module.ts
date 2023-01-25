@@ -15,14 +15,20 @@ import { DocumentosLiquidComponent } from './page/documentos-liquid/documentos-l
 import { DocumentosCertificacionesComponent } from './page/documentos-certificaciones/documentos-certificaciones.component';
 import { FormacionPortalEmpleadoComponent } from './page/formacion-portal-empleado/formacion-portal-empleado.component';
 import { DatosPersonalesComponent } from './page/datos-personales/datos-personales.component';
+import { Paso1Component } from './page/paso1/paso1.component';
+import { Paso2Component } from './page/paso2/paso2.component';
+import { Paso3Component } from './page/paso3/paso3.component';
+import { Paso4Component } from './page/paso4/paso4.component';
+import { Paso5Component } from './page/paso5/paso5.component';
+import { Paso6Component } from './page/paso6/paso6.component';
 
 
 //Rutas de  navegación
 const routes: Routes = [
   
   {  path: '',   component: IndexComponent },
-  {  path: 'home-portal-empleado/:id', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
-  {  path: 'documentos-portal-empleado/:id', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'home-portal-empleado', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'documentos-portal-empleado', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
   {  path: 'registro', component: RegistreseComponent ,  pathMatch : 'full'},
   {  path: 'soy-login-trabajador-home', component: SoyLoginTrabajadorHomeComponent ,  pathMatch : 'full'},
   {  path: 'contacto', component: ContactoComponent ,  pathMatch : 'full'},
@@ -33,8 +39,16 @@ const routes: Routes = [
   {  path: 'documentos-desprend', component: DocumentosDesprendComponent ,  pathMatch : 'full'},
   {  path: 'documentos-liquid', component: DocumentosLiquidComponent ,  pathMatch : 'full'},
   {  path: 'documentos-certificado', component: DocumentosCertificacionesComponent ,  pathMatch : 'full'},
-  {  path: 'formacion/:id', component: FormacionPortalEmpleadoComponent ,  pathMatch : 'full'},
-  {  path: 'datospersonales/:id', component: DatosPersonalesComponent ,  pathMatch : 'full'}
+  {  path: 'formacion', component: FormacionPortalEmpleadoComponent ,  pathMatch : 'full'},
+  {  path: 'datospersonales', component: DatosPersonalesComponent ,  pathMatch : 'full'},
+  {  path: 'paso1', component: Paso1Component ,  pathMatch : 'full'},
+  {  path: 'paso2', component: Paso2Component ,  pathMatch : 'full'},
+  {  path: 'paso3', component: Paso3Component ,  pathMatch : 'full'},
+  {  path: 'paso4', component: Paso4Component ,  pathMatch : 'full'},
+  {  path: 'paso5', component: Paso5Component ,  pathMatch : 'full'},
+  {  path: 'paso6', component: Paso6Component ,  pathMatch : 'full'}
+
+  
 
 ];
 

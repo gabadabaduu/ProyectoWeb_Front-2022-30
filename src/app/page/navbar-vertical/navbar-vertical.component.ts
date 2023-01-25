@@ -15,23 +15,23 @@ export class NavbarVerticalComponent implements OnInit {
   }
 
   GoToHome(){
-    this._router.navigate(['home-portal-empleado', this.id]);
+    this._router.navigate(['home-portal-empleado']);
   }
 
   GoToADocumentos(){
-    this._router.navigate(['documentos-portal-empleado', this.id]); 
+    this._router.navigate(['documentos-portal-empleado']); 
   }
 
   GoToFormacion(){
-    this._router.navigate(['formacion', this.id]); 
+    this._router.navigate(['formacion']); 
   }
 
   irAVacantes(){
-    this._router.navigate(['contactos', this.id]); 
+    this._router.navigate(['contactos']); 
   }
   
   GotoDatosPersonales(){
-    this._router.navigate(['datospersonales', this.id]); 
+    this._router.navigate(['datospersonales']); 
   }
   
 
