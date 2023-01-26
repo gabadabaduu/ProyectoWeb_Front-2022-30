@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class Paso2Component {
   constructor(private _router: Router) { }
 
-  GoPaso2(){
-    this._router.navigate(['paso2']);
+  GoPaso3(){
+    this._router.navigate(['paso3']);
   }
 }

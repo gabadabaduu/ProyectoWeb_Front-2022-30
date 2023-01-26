@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paso4',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./paso4.component.css']
 })
 export class Paso4Component {
+  constructor(private _router: Router) { }
 
+  GoPaso5(){
+    this._router.navigate(['paso5']);
+  }
 }

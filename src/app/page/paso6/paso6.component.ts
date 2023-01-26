@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import  { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paso6',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./paso6.component.css']
 })
 export class Paso6Component {
+  constructor(private _router: Router) { }
 
+  Fin(){
+    this._router.navigate(['fin']);
+  }
+  
 }

@@ -1,16 +1,14 @@
 
 .container {
     margin: -8.1px;
-    padding: 0;
-    
+    padding: 0;    
     /* centrar div en la pantalla */
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: #F2F3F5;
+    /*background-color: #F2F3F5;*/
 }
-
 
 .welcome {
     float: right;
@@ -25,7 +23,7 @@ h1 {
 }
 
 p {
-    font-size: 18pt;
+    font-size: 16pt;
     font-family: Open Sans;
 }
 
@@ -38,9 +36,6 @@ img {
     height: 191px;
 }
 
-.welcome p:nth-last-child(1) {
-    font-weight: 500;
-}
 
 .botones {
     /* alinear botones a la derecha*/
@@ -97,3 +92,28 @@ img {
     float: right;
     width: 155px;
 }
+
+.cuadroGrande {
+    /* alinear cuadro grande a la izquierda*/
+   width: 100%;
+}
+
+.cuadro1 {
+    /* alinear cuadro 1 a la izquierda*/
+    float: left;
+    width: 47%;
+}	
+
+.cuadro2 {
+    /* alinear cuadro 1 a la izquierda*/
+    float: left;
+    width: 47%;
+    margin-left: 6%;
+}	
+
+h3 {
+    color: #4A20D6;
+    font-size: 16pt;
+    font-family: Open sans;    
+}	
+

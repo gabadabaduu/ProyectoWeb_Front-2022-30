@@ -32,6 +32,8 @@ import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
