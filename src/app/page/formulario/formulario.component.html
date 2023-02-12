@@ -4,7 +4,7 @@
             <img src="assets/blanco-horizontal-alianza.png" alt="logo" class="logo">
         </div>
     </div>
-    <h1>Formulario de Contratacion</h1>
+    <h1>Formulario de contratación</h1>
     <div class="fila1">
         <form class="formulario">
             <div class="title">
@@ -12,17 +12,17 @@
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Numero de Cedula</mat-label>
+                    <mat-label>Número de cédula</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Primer Apellido</mat-label>
+                    <mat-label>Primer apellido</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Segundo Apellido</mat-label>
+                    <mat-label>Segundo apellido</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
@@ -33,7 +33,7 @@
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Segundo Nombre</mat-label>
+                    <mat-label>Segundo nombre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
@@ -64,18 +64,18 @@
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>¿En que ciudad usted vive?</mat-label>
+                    <mat-label>¿En qué ciudad usted vive?</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
 
             <div class="title">
-                <h1>Datos cedula</h1>
+                <h1>Datos cédula</h1>
             </div>
             <div class="datos">
 
                 <mat-form-field appearance="fill">
-                    <mat-label>RH (tipo de Sangre)</mat-label>
+                    <mat-label>RH (tipo de sangre)</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">AB+</mat-option>
                         <mat-option value="">AB-</mat-option>
@@ -89,7 +89,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Genero</mat-label>
+                    <mat-label>Género</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">M</mat-option>
                         <mat-option value="">F</mat-option>
@@ -103,7 +103,7 @@
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Diestro(Escribe mano derecha) o zurdo (Escribe mano izquierda)
+                    <mat-label>Diestro(Escribe con la mano derecha) o zurdo (Escribe  con la mano izquierda)
                     </mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">Zurdo</mat-option>
@@ -113,11 +113,11 @@
             </div>
 
             <div class="title">
-                <h1>Datos Escolares</h1>
+                <h1>Datos escolares</h1>
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Escolaridad</mat-label>
+                    <mat-label>Nivel de escolaridad</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="one" (click)="mostrar=false">1</mat-option>
                         <mat-option value="dos" (click)="mostrar=false">2</mat-option>
@@ -135,7 +135,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar">
-                    <mat-label> Titulo de la Escolaridad</mat-label>
+                    <mat-label>Nivel de escolaridad </mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
@@ -145,7 +145,7 @@
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Año Finalizacion</mat-label>
+                    <mat-label>Año finalización</mat-label>
                     <input matInput [matDatepicker]="picker">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -154,16 +154,16 @@
 
                 <!--pendiente para mostrar la opcion otro-->
                 <mat-form-field appearance="fill">
-                    <mat-label>Titulo Obtenido</mat-label>
+                    <mat-label>Titulo obtenido</mat-label>
                     <mat-select>
-                        <mat-option value="primariab" (click)="mostrar2=false">Primaria Básica</mat-option>
-                        <mat-option value="bachiretab" (click)="mostrar2=false">Bachillerato Básico</mat-option>
+                        <mat-option value="primariab" (click)="mostrar2=false">Primaria básica</mat-option>
+                        <mat-option value="bachiretab" (click)="mostrar2=false">Bachillerato básico</mat-option>
                         <mat-option value="otro" (click)="mostrar2=true">Otro</mat-option>
                     </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar2">
-                    <mat-label>Nombre del titulo</mat-label>
+                    <mat-label>Titulo obtenido</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
@@ -192,7 +192,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Talla Pantalon </mat-label>
+                    <mat-label>Talla Pantalón </mat-label>
                     <mat-select>
                         <mat-option value="seis">6</mat-option>
                         <mat-option value="ocho">8</mat-option>
@@ -210,7 +210,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Talla Camisa </mat-label>
+                    <mat-label>Talla camisa </mat-label>
                     <mat-select>
                         <mat-option value="seis">6</mat-option>
                         <mat-option value="ocho">8</mat-option>
@@ -228,7 +228,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Talla Calzado</mat-label>
+                    <mat-label>Talla calzado</mat-label>
                     <mat-select>
                         <mat-option value="treinta5">35</mat-option>
                         <mat-option value="treinta6">36</mat-option>
@@ -252,7 +252,7 @@
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Parentesco Familiar</mat-label>
+                    <mat-label>Parentesco familiar</mat-label>
                     <mat-select>
                         <mat-option value="padre" (click)="mostrar3=false">Padre</mat-option>
                         <mat-option value="madre" (click)="mostrar3=false">Madre</mat-option>
@@ -266,27 +266,27 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar3">
-                    <mat-label>Parentesco Familiar</mat-label>
+                    <mat-label>Parentesco familiar</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Dirección Familiar</mat-label>
+                    <mat-label>Dirección del familiar</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Barrio Familiar</mat-label>
+                    <mat-label>Barrio del familiar</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Teléfono de su familiar</mat-label>
+                    <mat-label>Teléfono del familiar</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Ocupación de su familiar</mat-label>
+                    <mat-label>Ocupación del familiar</mat-label>
                     <mat-select>
                         <mat-option value="Trabajador" (click)="mostrar4=false">Trabajador</mat-option>
                         <mat-option value="Independiente" (click)="mostrar4=false">Independiente</mat-option>
@@ -296,17 +296,17 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar4">
-                    <mat-label>Ocupacion del familiar</mat-label>
+                    <mat-label>Ocupación del familiar</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
 
             <div class="title">
-                <h1>Datos Pareja</h1>
+                <h1>Datos pareja</h1>
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Tiene pareja y se encuentra viva?</mat-label>
+                    <mat-label>¿Tiene pareja y se encuentra viva?</mat-label>
                     <mat-select>
                         <mat-option value="si" (click)="mostrar5=true">Si</mat-option>
                         <mat-option value="no" (click)="mostrar5=false">No</mat-option>
@@ -314,7 +314,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar5">
-                    <mat-label>Nombre Pareja</mat-label>
+                    <mat-label>Nombre de la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
@@ -330,28 +330,28 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar8" >
-                    <mat-label *ngIf="mostrar5">Ocupacion de la pareja</mat-label>
+                    <mat-label *ngIf="mostrar5">Ocupación de la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar5">
-                    <mat-label>Dirección de pareja</mat-label>
+                    <mat-label>Dirección de la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar5">
-                    <mat-label>Teléfono de su pareja</mat-label>
+                    <mat-label>Teléfono de la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar5">
-                    <mat-label>Barrio donde vive su pareja</mat-label>
+                    <mat-label>Barrio donde vive la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
 
             <div class="title">
-                <h1>Datos Hijos</h1>
+                <h1>Datos hijos</h1>
             </div>
             <div class="datos">
                 <!--pendiente para mostrar preguntas por la cantidad de hijos-->
@@ -368,13 +368,13 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Nombre Hijo</mat-label>
+                    <mat-label>Nombre del hijo</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Genero hijo #</mat-label>
+                    <mat-label>Género del hijo #</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">M</mat-option>
                         <mat-option value="">F</mat-option>
@@ -383,7 +383,7 @@
 
                 <!--corregir-->
                 <mat-form-field appearance="fill">
-                    <mat-label>Año nacimiento hijo #</mat-label>
+                    <mat-label>Año nacimiento del hijo #</mat-label>
                     <input matInput [matDatepicker]="picker2">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -392,15 +392,15 @@
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Documento hijo # </mat-label>
+                    <mat-label>Documento del hijo # </mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Curso hijo #</mat-label>
+                    <mat-label>Curso del hijo #</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="en casa">En casa</mat-option>
-                        <mat-option value="jardin">Jardin</mat-option>
+                        <mat-option value="jardin">Jardín</mat-option>
                         <mat-option value="one">1</mat-option>
                         <mat-option value="dos">2</mat-option>
                         <mat-option value="tres">3</mat-option>
@@ -412,14 +412,14 @@
                         <mat-option value="nueve">9</mat-option>
                         <mat-option value="diez">10</mat-option>
                         <mat-option value="once">11</mat-option>
-                        <mat-option value="one">Tecnico</mat-option>
+                        <mat-option value="one">Técnico</mat-option>
                         <mat-option value="dos">Universidad</mat-option>
                     </mat-select>
                 </mat-form-field>
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Quien los cuida?</mat-label>
+                    <mat-label>Ocupación del Hijo #</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">Esta en casa</mat-option>
                         <mat-option value="">Estudio</mat-option>
@@ -429,7 +429,7 @@
             </div>
 
             <div class="title">
-                <h1>Datos Padre</h1>
+                <h1>Datos padre</h1>
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
@@ -441,13 +441,13 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar6">
-                    <mat-label>Nombre de su padre </mat-label>
+                    <mat-label>Nombre del padre </mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <!--pendiente para mostrar la opcion otro-->
                 <mat-form-field appearance="fill" *ngIf="mostrar6">
-                    <mat-label>Ocupación Padre </mat-label>
+                    <mat-label> Ocupación del padre </mat-label>
                     <mat-select>
                         <mat-option value="empleado" (click)="mostrar9=false">Empleado</mat-option>
                         <mat-option value="independiente" (click)="mostrar9=false">Independiente</mat-option>
@@ -457,22 +457,22 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar9">
-                    <mat-label>Ocupacion del padre</mat-label>
+                    <mat-label>Ocupación del padre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar6">
-                    <mat-label>Dirección Padre</mat-label>
+                    <mat-label>Dirección del padre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar6">
-                    <mat-label>Teléfono Padre</mat-label>
+                    <mat-label>Teléfono del padre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar6">
-                    <mat-label>Barrio Padre</mat-label>
+                    <mat-label>Barrio del padre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
@@ -490,7 +490,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar7">
-                    <mat-label>Nombre de madre </mat-label>
+                    <mat-label>Nombre de la madre </mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
@@ -506,43 +506,43 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar10">
-                    <mat-label>Ocupacion de la madre</mat-label>
+                    <mat-label>Ocupación de la madre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar7">
-                    <mat-label>Dirección donde vive madre</mat-label>
+                    <mat-label>Dirección donde vive la madre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar7">
-                    <mat-label>Teléfono Madre</mat-label>
+                    <mat-label>Teléfono de la madre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar7">
-                    <mat-label>Barrio donde vive Madre</mat-label>
+                    <mat-label>Barrio donde vive la madre</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
             </div>
 
             <div class="title">
-                <h1>Datos Referencia</h1>
+                <h1>Datos de la referencia</h1>
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Nombre Referencia #</mat-label>
+                    <mat-label>Nombre de la referencia #</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Telefono de su referencia #</mat-label>
+                    <mat-label>Telefono de la referencia #</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
 
                 <!--pendiente para mostrar la opcion otro-->
                 <mat-form-field appearance="fill">
-                    <mat-label>Ocupación de la Referencia #</mat-label>
+                    <mat-label>Ocupación de la referencia #</mat-label>
                     <mat-select>
                         <mat-option value="empleado" (click)="mostrar11=false">Empleado</mat-option>
                         <mat-option value="independiente" (click)="mostrar11=false">Independiente</mat-option>
@@ -552,12 +552,12 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar11">
-                    <mat-label>Ocupacion de la Referencia #</mat-label>
+                    <mat-label>Ocupación de la referencia #</mat-label>
                     <input matInput>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Tiene Experiencia en flores ? </mat-label>
+                    <mat-label>Tiene experiencia en flores ? </mat-label>
                     <mat-select>
                         <mat-option value="si" (click)="mostrar12=true">Si</mat-option>
                         <mat-option value="no" (click)="mostrar12=false">No</mat-option>
@@ -566,29 +566,29 @@
             </div>
 
             <div class="title" *ngIf="mostrar12">
-                <h1>Datos Empresa de Flores</h1>
+                <h1>Datos empresa de flores</h1>
             </div>
             <div class="datos" *ngIf="mostrar12">
                 <mat-form-field appearance="fill" *ngIf="mostrar12">
-                    <mat-label>Nombre de la Empresa en que trabajaba
+                    <mat-label>Nombre de la empresa en que trabajaba
                     </mat-label>
                     <input matInput>
                 </mat-form-field>
 
 
                 <mat-form-field appearance="fill" *ngIf="mostrar12">
-                    <mat-label>Dirección Empresa donde trabajo </mat-label>
+                    <mat-label>Dirección empresa donde trabajo </mat-label>
                     <input matInput>
                 </mat-form-field>
 
 
                 <mat-form-field appearance="fill" *ngIf="mostrar12">
-                    <mat-label>Teléfono Empresa donde trabajo</mat-label>
+                    <mat-label>Teléfono empresa donde trabajo</mat-label>
                     <input matInput>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar12">
-                    <mat-label>Nombre Jefe Inmediato</mat-label>
+                    <mat-label>Nombre jefe inmediato</mat-label>
                     <input matInput>
                 </mat-form-field>
 
@@ -610,7 +610,7 @@
                     <mat-select #brand formControlName="otro">
                         <mat-option value="finContrato">Fin de contrato</mat-option>
                         <mat-option value="volunta">Voluntario</mat-option>
-                        <mat-option value="abandono">Abandono de Cargo</mat-option>
+                        <mat-option value="abandono">Abandono de cargo</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -625,7 +625,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>¿En que area? </mat-label>
+                    <mat-label>¿En que área? </mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="finContrato" (click)="mostrar13=false">Cultivo</mat-option>
                         <mat-option value="volunta" (click)="mostrar13=false">Poscosecha</mat-option>
@@ -635,7 +635,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar13">
-                    <mat-label>¿En que area?
+                    <mat-label>¿En que área?
                     </mat-label>
                     <input matInput>
                 </mat-form-field>
@@ -650,7 +650,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>¿Por que se da esta auto calificación? </mat-label>
+                    <mat-label>¿Por que se da está auto calificación? </mat-label>
                     <input matInput>
                 </mat-form-field>
 
@@ -688,7 +688,7 @@
                 </mat-form-field>
 
                 <section class="example-section">
-                    <h3>Con quien vive</h3>
+                    <h3>¿Con quién vive?</h3>
                     <mat-checkbox class="example-margin">Solo</mat-checkbox>
                     <mat-checkbox class="example-margin">Amigos</mat-checkbox>
                     <mat-checkbox class="example-margin">Abuelo</mat-checkbox>
@@ -707,7 +707,7 @@
                 </section>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Estudia Actualmente </mat-label>
+                    <mat-label>Estudia actualmente </mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="">Si</mat-option>
                         <mat-option value="">No</mat-option>
@@ -743,20 +743,20 @@
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Quien los cuida?</mat-label>
+                    <mat-label>¿Quién los cuida?</mat-label>
                     <mat-select #brand formControlName="otro">
                         <mat-option value="" (click)="mostrar16=false">Yo</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Pareja</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Abuelos</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Tios</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Amigos</mat-option>
-                        <mat-option value="" (click)="mostrar16=false">Jardin</mat-option>
+                        <mat-option value="" (click)="mostrar16=false">Jardín</mat-option>
                         <mat-option value="" (click)="mostrar16=true">Otro</mat-option>
                     </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar16">
-                    <mat-label>Quien los cuida?</mat-label>
+                    <mat-label>¿Quién los cuida?</mat-label>
                     <input matInput>
                 </mat-form-field>
 
@@ -767,9 +767,9 @@
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>Como es su relacion Familiar</mat-label>
+                    <mat-label>Como es su relación Familiar</mat-label>
                     <mat-select #brand formControlName="otro">
-                        <mat-option value="">Mala Relacion (No Tenemos contacto)</mat-option>
+                        <mat-option value="">Mala Relación (No Tenemos contacto)</mat-option>
                         <mat-option value="">Mas o menos (Hablamos de vez en cuando)</mat-option>
                         <mat-option value="">Buena (Hablamos Fecuentemente)</mat-option>
                         <mat-option value="">Excelente (Convivimos bien actualmente)</mat-option>
@@ -792,7 +792,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar17">
-                    <mat-label> Ha tenido algun malentendido o situacion conflictiva en algun trabajo, Si si en otro
+                    <mat-label> Ha tenido algun malentendido o situación conflictiva en algun trabajo, Si si en otro
                         especificar por que: </mat-label>
                     <input matInput>
                 </mat-form-field>
@@ -814,19 +814,19 @@
             </div>
             <div class="datos">
                 <mat-form-field appearance="fill">
-                    <mat-label>COMO SE ENTERO DEL EMPLEO</mat-label>
+                    <mat-label>¿Comó se entero del empleo?</mat-label>
                     <mat-select #brand formControlName="otro">
-                        <mat-option value="" (click)="mostrar18=false">AMIGOS FAMILIA (VOZ A VOZ) </mat-option>
-                        <mat-option value="" (click)="mostrar18=false">PERIFONEO CARRO </mat-option>
-                        <mat-option value="" (click)="mostrar18=false">VOLANTES CHICO A PIE (POP MAN) </mat-option>
-                        <mat-option value="" (click)="mostrar18=false">YA HABÍA TRABAJADO CON NOSOTROS </mat-option>
-                        <mat-option value="" (click)="mostrar18=false">REDES SOCIALES (FACEBOOK, INSTAGRAM)</mat-option>
+                        <mat-option value="" (click)="mostrar18=false">Amigos familia (VOZ A VOZ) </mat-option>
+                        <mat-option value="" (click)="mostrar18=false">Perifoneo carro </mat-option>
+                        <mat-option value="" (click)="mostrar18=false">Volantes chico a pie (POP MAN) </mat-option>
+                        <mat-option value="" (click)="mostrar18=false">Ya había trabajado con nosotros </mat-option>
+                        <mat-option value="" (click)="mostrar18=false">Redes sociales (FACEBOOK, INSTAGRAM)</mat-option>
                         <mat-option value="" (click)="mostrar18=true">Otro</mat-option>
                     </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar18">
-                    <mat-label>COMO SE ENTERO DEL EMPLEO </mat-label>
+                    <mat-label>¿Comó se entero del empleo?</mat-label>
                     <input matInput>
                 </mat-form-field>
             </div>
