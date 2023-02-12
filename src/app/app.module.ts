@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePortalEmpleadoComponent } from './page/home-portal-empleado/home-portal-empleado.component';
@@ -31,6 +41,9 @@ import { Paso3Component } from './page/paso3/paso3.component';
 import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
+import { FormularioComponent } from './page/formulario/formulario.component';
+
+
 
 
 
@@ -63,6 +76,7 @@ import { Paso6Component } from './page/paso6/paso6.component';
     Paso4Component,
     Paso5Component,
     Paso6Component,
+    FormularioComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +85,16 @@ import { Paso6Component } from './page/paso6/paso6.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule
     
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

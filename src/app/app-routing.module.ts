@@ -21,6 +21,7 @@ import { Paso3Component } from './page/paso3/paso3.component';
 import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
+import { FormularioComponent } from './page/formulario/formulario.component';
 
 
 //Rutas de  navegación
@@ -46,7 +47,8 @@ const routes: Routes = [
   {  path: 'paso3', component: Paso3Component ,  pathMatch : 'full'},
   {  path: 'paso4', component: Paso4Component ,  pathMatch : 'full'},
   {  path: 'paso5', component: Paso5Component ,  pathMatch : 'full'},
-  {  path: 'paso6', component: Paso6Component ,  pathMatch : 'full'}
+  {  path: 'paso6', component: Paso6Component ,  pathMatch : 'full'},
+  {  path: 'formulario', component: FormularioComponent ,  pathMatch : 'full'  }
 
   
 

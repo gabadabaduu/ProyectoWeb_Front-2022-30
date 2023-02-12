@@ -21,5 +21,8 @@ export class NavbarComponent implements OnInit {
   GotToRegistro(){
     this._router.navigate(['registro']);
   }
+  GotoFORM(){
+    this._router.navigate(['formulario']);
+  }
 
 }

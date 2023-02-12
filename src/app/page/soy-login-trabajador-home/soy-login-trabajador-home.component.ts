@@ -31,6 +31,7 @@ export class SoyLoginTrabajadorHomeComponent implements OnInit {
   irARegistro() {
     this._router.navigate(['registro']);
   }
+  
 
 
 }

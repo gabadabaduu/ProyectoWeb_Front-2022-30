@@ -1,0 +1,199 @@
+.contenedor {
+    margin: -8.1px;
+    max-width: 104%;
+}
+
+.head {
+    width: 100%;
+    height: 100px;
+    background-color: #8DD603;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    background-color: #8DD603;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.title {
+    height: 50px;
+    background-color: #8DD603;
+    padding-left: 30px;
+    margin-top: 10px;
+    color: white;
+    padding-top: 15px;
+}
+
+h1 {
+    font-family: Oswald;
+    font-size: 30pt;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1:nth-child(2) {
+    /* centrar en la mitad */
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.fila1 {
+    width: 95%;
+    height: 100%;
+    /* centrar div horizontalmente */
+    margin: 0 auto;    
+}
+
+/* columna1 el texto de auto acomoda en la pantalla */
+.datos {
+    width: 100%;
+    height: 100%;
+    background-color: #F2F3F5;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-section {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.example-section h3{
+    font-family: 'Open Sans';
+}
+
+.example-margin {
+    margin: 0 12px;
+}
+
+mat-checkbox{
+    font-family: 'Open Sans';
+    font-size: 12pt;
+}
+
+
+
+mat-form-field {
+    width: 30%;
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.rh {
+    margin-right: 60px;
+}
+
+.genero {
+    margin-right: 290pt;
+}
+
+.mano {
+    margin-bottom: 20px;
+}
+
+mat-radio-button {
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+
+
+mat-radio-group {
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+
+/* colocar titulo abajo de la imagen cuando se reduzca la pantalla y centrado en la pantalla*/
+@media screen and (max-width: 600px) {
+    .titulo {
+        font-size: 25pt;
+        color: white;
+        float: left;
+        font-family: Oswald;
+        text-align: center;
+    }
+
+    .title{
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .logo {
+        margin-top: 10px;
+
+    }
+
+    .contenedor {
+        width: 105%;
+        height: 100%;
+    }
+
+    .head {
+        height: 100px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+
+    .formulario{
+        width: 101%;
+        height: 100%;
+      
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+
+    mat-form-field {
+        width: 100%;
+        margin-top : 10px ;
+        margin-bottom : 0px ;
+
+        
+    }
+}
+
+@media screen and (min-width : 1224px) and (max-width : 1824px) {
+    .contenedor {
+        width: 100%;
+        height: 100%;
+    }
+
+    .head {
+        height: 100px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+
+    .formulario{
+        width: 101%;
+        height: 100%;
+      
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+
+    mat-form-field {
+        width: 29.1%;
+        margin-top : 10px ;
+        margin-bottom : 0px ;
+
+        
+    }
+}
