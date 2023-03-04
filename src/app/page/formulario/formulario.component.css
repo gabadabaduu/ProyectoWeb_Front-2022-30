@@ -74,46 +74,36 @@ h1:nth-child(2) {
     margin: 0 12px;
 }
 
+.example-month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .example-month-picker .mat-calendar-arrow {
+    display: none;
+  }
+
 mat-checkbox{
     font-family: 'Open Sans';
     font-size: 12pt;
 }
-
-
 
 mat-form-field {
     width: 30%;
     margin-top: 10px;
     margin-right: 30px;
     margin-left: 30px;
-    margin-bottom: 10px;
-    float: left;
+    margin-bottom: 10px;    
 }
 
-.rh {
-    margin-right: 60px;
+mat-datepicker-toggle {
+    color : #8DD603;   
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
 }
 
-.genero {
-    margin-right: 290pt;
-}
-
-.mano {
-    margin-bottom: 20px;
-}
-
-mat-radio-button {
-    margin-top: 10px;
-    margin-right: 30px;
-    margin-left: 30px;
-}
-
-
-
-mat-radio-group {
-    margin-top: 10px;
-    margin-right: 30px;
-    margin-left: 30px;
+mat-datepicker{
+    color : #8DD603;   
 }
 
 
@@ -193,7 +183,6 @@ mat-radio-group {
         width: 29.1%;
         margin-top : 10px ;
         margin-bottom : 0px ;
-
         
     }
 }

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {FormControl} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {ThemePalette} from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +10,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
-  colorControl = new FormControl('primary' as ThemePalette);
+  startDate = new Date(1990, 0, 1);
+  
   mostrar = false;
   mostrar2 = false;
   mostrar3 = false;

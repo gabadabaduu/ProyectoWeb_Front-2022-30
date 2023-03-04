@@ -39,7 +39,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Estado civil </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">SO (Soltero)</mat-option>
                         <mat-option value="">UL (Unión Libre) </mat-option>
                         <mat-option value="">CA (Casado)</mat-option>
@@ -74,9 +74,11 @@
             </div>
             <div class="datos">
 
+                
+
                 <mat-form-field appearance="fill">
                     <mat-label>RH (tipo de sangre)</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">AB+</mat-option>
                         <mat-option value="">AB-</mat-option>
                         <mat-option value="">A+</mat-option>
@@ -90,7 +92,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Género</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">M</mat-option>
                         <mat-option value="">F</mat-option>
                     </mat-select>
@@ -103,9 +105,9 @@
 
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Diestro(Escribe con la mano derecha) o zurdo (Escribe  con la mano izquierda)
+                    <mat-label>Diestro(Escribe con la mano derecha) o zurdo (Escribe con la mano izquierda)
                     </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">Zurdo</mat-option>
                         <mat-option value="">Diestro</mat-option>
                     </mat-select>
@@ -118,7 +120,7 @@
             <div class="datos">
                 <mat-form-field appearance="fill">
                     <mat-label>Nivel de escolaridad</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="one" (click)="mostrar=false">1</mat-option>
                         <mat-option value="dos" (click)="mostrar=false">2</mat-option>
                         <mat-option value="tres" (click)="mostrar=false">3</mat-option>
@@ -146,10 +148,12 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Año finalización</mat-label>
-                    <input matInput [matDatepicker]="picker">
+                    <input matInput [matDatepicker]="dp">
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                    <mat-datepicker #dp startView="multi-year" [startAt]="startDate" panelClass="example-month-picker"
+                        pannelClass="example-day-picker">
+                    </mat-datepicker>
                 </mat-form-field>
 
                 <!--pendiente para mostrar la opcion otro-->
@@ -329,7 +333,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" *ngIf="mostrar8" >
+                <mat-form-field appearance="fill" *ngIf="mostrar8">
                     <mat-label *ngIf="mostrar5">Ocupación de la pareja</mat-label>
                     <input matInput>
                 </mat-form-field><BR>
@@ -375,19 +379,20 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Género del hijo #</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">M</mat-option>
                         <mat-option value="">F</mat-option>
                     </mat-select>
                 </mat-form-field>
 
-                <!--corregir-->
                 <mat-form-field appearance="fill">
                     <mat-label>Año nacimiento del hijo #</mat-label>
-                    <input matInput [matDatepicker]="picker2">
+                    <input matInput [matDatepicker]="dp2">
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp2"></mat-datepicker-toggle>
+                    <mat-datepicker #dp2 startView="multi-year" [startAt]="startDate" panelClass="example-month-picker"
+                        pannelClass="example-day-picker">
+                    </mat-datepicker>
                 </mat-form-field>
 
 
@@ -398,7 +403,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Curso del hijo #</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="en casa">En casa</mat-option>
                         <mat-option value="jardin">Jardín</mat-option>
                         <mat-option value="one">1</mat-option>
@@ -420,7 +425,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Ocupación del Hijo #</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">Esta en casa</mat-option>
                         <mat-option value="">Estudio</mat-option>
                         <mat-option value="">Trabaja</mat-option>
@@ -599,15 +604,17 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Fecha de retiro empresa </mat-label>
-                    <input matInput [matDatepicker]="picker3">
+                    <input matInput [matDatepicker]="dp3">
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
-                    <mat-datepicker #picker3></mat-datepicker>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+                    <mat-datepicker #dp3 startView="multi-year" [startAt]="startDate" panelClass="example-month-picker"
+                        pannelClass="example-day-picker">
+                    </mat-datepicker>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>Motivo de retiro empresa</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="finContrato">Fin de contrato</mat-option>
                         <mat-option value="volunta">Voluntario</mat-option>
                         <mat-option value="abandono">Abandono de cargo</mat-option>
@@ -626,7 +633,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>¿En que área? </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="finContrato" (click)="mostrar13=false">Cultivo</mat-option>
                         <mat-option value="volunta" (click)="mostrar13=false">Poscosecha</mat-option>
                         <mat-option value="abandono" (click)="mostrar13=false">Ambas</mat-option>
@@ -642,7 +649,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Califique su rendimiento </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="finContrato">Bajo</mat-option>
                         <mat-option value="volunta">Medio</mat-option>
                         <mat-option value="abandono">Excelente</mat-option>
@@ -662,7 +669,7 @@
             <div class="datos">
                 <mat-form-field appearance="fill">
                     <mat-label>Hace cuanto vive en la zona</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">Menos de un mes</mat-option>
                         <mat-option value="">3 meses</mat-option>
                         <mat-option value="">6 meses</mat-option>
@@ -673,8 +680,8 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Tipo de vivienda      </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-label>Tipo de vivienda </mat-label>
+                    <mat-select>
                         <mat-option value="" (click)="mostrar14=false">Personal</mat-option>
                         <mat-option value="" (click)="mostrar14=false">Arriendo</mat-option>
                         <mat-option value="" (click)="mostrar14=false">Familiar</mat-option>
@@ -683,7 +690,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" *ngIf="mostrar14">
-                    <mat-label>Tipo de vivienda  </mat-label>
+                    <mat-label>Tipo de vivienda </mat-label>
                     <input matInput>
                 </mat-form-field>
 
@@ -708,7 +715,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Estudia actualmente </mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">Si</mat-option>
                         <mat-option value="">No</mat-option>
                     </mat-select>
@@ -726,7 +733,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Numero de hijos a cargo</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">0</mat-option>
                         <mat-option value="">1</mat-option>
                         <mat-option value="">2</mat-option>
@@ -744,7 +751,7 @@
             <div class="datos">
                 <mat-form-field appearance="fill">
                     <mat-label>¿Quién los cuida?</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="" (click)="mostrar16=false">Yo</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Pareja</mat-option>
                         <mat-option value="" (click)="mostrar16=false">Abuelos</mat-option>
@@ -768,7 +775,7 @@
             <div class="datos">
                 <mat-form-field appearance="fill">
                     <mat-label>Como es su relación Familiar</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="">Mala Relación (No Tenemos contacto)</mat-option>
                         <mat-option value="">Mas o menos (Hablamos de vez en cuando)</mat-option>
                         <mat-option value="">Buena (Hablamos Fecuentemente)</mat-option>
@@ -785,7 +792,7 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Ha tenido algun malentendido o situacion conflictiva en algun trabajo, Si si en otro
                         especificar por que:</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="" (click)="mostrar17=false">No</mat-option>
                         <mat-option value="" (click)="mostrar17=true">Otro</mat-option>
                     </mat-select>
@@ -815,7 +822,7 @@
             <div class="datos">
                 <mat-form-field appearance="fill">
                     <mat-label>¿Comó se entero del empleo?</mat-label>
-                    <mat-select #brand formControlName="otro">
+                    <mat-select>
                         <mat-option value="" (click)="mostrar18=false">Amigos familia (VOZ A VOZ) </mat-option>
                         <mat-option value="" (click)="mostrar18=false">Perifoneo carro </mat-option>
                         <mat-option value="" (click)="mostrar18=false">Volantes chico a pie (POP MAN) </mat-option>
