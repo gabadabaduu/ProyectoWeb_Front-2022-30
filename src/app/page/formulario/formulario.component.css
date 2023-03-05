@@ -49,7 +49,7 @@ h1:nth-child(2) {
     width: 95%;
     height: 100%;
     /* centrar div horizontalmente */
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 /* columna1 el texto de auto acomoda en la pantalla */
@@ -66,7 +66,7 @@ h1:nth-child(2) {
     margin-bottom: 20px;
 }
 
-.example-section h3{
+.example-section h3 {
     font-family: 'Open Sans';
 }
 
@@ -76,13 +76,13 @@ h1:nth-child(2) {
 
 .example-month-picker .mat-calendar-period-button {
     pointer-events: none;
-  }
-  
-  .example-month-picker .mat-calendar-arrow {
-    display: none;
-  }
+}
 
-mat-checkbox{
+.example-month-picker .mat-calendar-arrow {
+    display: none;
+}
+
+mat-checkbox {
     font-family: 'Open Sans';
     font-size: 12pt;
 }
@@ -92,23 +92,67 @@ mat-form-field {
     margin-top: 10px;
     margin-right: 30px;
     margin-left: 30px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
 }
 
 mat-datepicker-toggle {
-    color : #8DD603;   
+    color: #8DD603;
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
 }
 
-mat-datepicker{
-    color : #8DD603;   
+mat-datepicker {
+    color: #8DD603;
 }
 
+.boton {
+    height: 51px;
+    width: 540px;
+    background-color: #8DD603;
+    border: none;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    color: #fff;
+    font-size: 13pt;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton2 {
+    height: 51px;
+    width: 540px;
+    background-color: #8DD603;
+    border: none;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    color: #fff;
+    font-size: 13pt;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.file {
+    margin-top: 10px;
+}
+
+.input-file {
+    display: none;
+}
+
+.previo {
+    width: 300px;
+    height: 200px;
+}
 
 /* colocar titulo abajo de la imagen cuando se reduzca la pantalla y centrado en la pantalla*/
 @media screen and (max-width: 600px) {
+
     .titulo {
         font-size: 25pt;
         color: white;
@@ -117,7 +161,7 @@ mat-datepicker{
         text-align: center;
     }
 
-    .title{
+    .title {
         height: auto;
         padding-bottom: 20px;
     }
@@ -138,10 +182,10 @@ mat-datepicker{
         box-sizing: content-box;
     }
 
-    .formulario{
+    .formulario {
         width: 101%;
         height: 100%;
-      
+
     }
 
     h3 {
@@ -150,10 +194,17 @@ mat-datepicker{
 
     mat-form-field {
         width: 100%;
-        margin-top : 10px ;
-        margin-bottom : 0px ;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
 
-        
+    .boton {
+        width: 84%;
+    }
+
+    .boton2 {
+        width: 85%;
+        margin-left: 30px;
     }
 }
 
@@ -169,10 +220,10 @@ mat-datepicker{
         box-sizing: content-box;
     }
 
-    .formulario{
+    .formulario {
         width: 101%;
         height: 100%;
-      
+
     }
 
     h3 {
@@ -181,8 +232,17 @@ mat-datepicker{
 
     mat-form-field {
         width: 29.1%;
-        margin-top : 10px ;
-        margin-bottom : 0px ;
-        
+        margin-top: 10px;
+        margin-bottom: 0px;
     }
+
+    .boton {
+        width: 75%;
+    }
+
+    .boton2 {
+        width: 85%;
+        margin-left: -50px;
+    }
+    
 }

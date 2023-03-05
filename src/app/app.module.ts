@@ -42,6 +42,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 
 
+import { WebcamModule } from 'ngx-webcam';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +74,7 @@ import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 import { FormularioComponent } from './page/formulario/formulario.component';
+
 
 
 
@@ -154,6 +156,7 @@ import { FormularioComponent } from './page/formulario/formulario.component';
     MatTreeModule,
     OverlayModule,
     MatFormFieldModule,
+    WebcamModule
   
 
 

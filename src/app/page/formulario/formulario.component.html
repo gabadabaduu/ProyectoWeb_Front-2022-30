@@ -73,8 +73,25 @@
                 <h1>Datos cédula</h1>
             </div>
             <div class="datos">
-
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha nacimiento</mat-label>
+                    <input matInput [matDatepicker]="dp8">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp8"></mat-datepicker-toggle>
+                    <mat-datepicker #dp8 startView="multi-year" [startAt]="startDate" panelClass="example-month-picker"
+                        pannelClass="example-day-picker">
+                    </mat-datepicker>
+                </mat-form-field>
                 
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha expedición</mat-label>
+                    <input matInput [matDatepicker]="dp9">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp9"></mat-datepicker-toggle>
+                    <mat-datepicker #dp9 startView="multi-year" [startAt]="startDate" panelClass="example-month-picker"
+                        pannelClass="example-day-picker">
+                    </mat-datepicker>
+                </mat-form-field>
 
                 <mat-form-field appearance="fill">
                     <mat-label>RH (tipo de sangre)</mat-label>
@@ -112,6 +129,28 @@
                         <mat-option value="">Diestro</mat-option>
                     </mat-select>
                 </mat-form-field>
+
+                <div class="file">
+                    <input  (change)="capturarFile($event)" type="file" class="input-file" id="file">   
+                    <button class="boton" onclick="document.getElementById('file').click()">Seleccione la foto de la parte frontal de la cedula (Debe ser clara)</button>
+                </div>                
+                
+                <div class="preview-img" *ngIf="previsualizacion">                    
+                    <img  class="previo" [src]="previsualizacion" alt="1">
+                </div>                         
+                
+                
+                <div class="file">
+                    <input  (change)="capturarFile2($event)" type="file" class="input-file" id="file2">   
+                    <button class="boton2" onclick="document.getElementById('file2').click()">Seleccione la foto de la parte trasera de la cedula (Debe ser clara)</button>
+                </div>                
+                
+                <div class="preview-img" *ngIf="previsualizacion2">                    
+                    <img  class="previo" [src]="previsualizacion2" alt="2">
+                </div>              
+                
+               
+
             </div>
 
             <div class="title">
