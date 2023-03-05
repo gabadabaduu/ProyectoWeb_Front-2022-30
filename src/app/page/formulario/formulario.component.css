@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: content-box;
 }
 
 .logo {
@@ -139,6 +140,7 @@ mat-datepicker {
 
 .file {
     margin-top: 10px;
+    margin-bottom: 10px ;
 }
 
 .input-file {
@@ -148,6 +150,21 @@ mat-datepicker {
 .previo {
     width: 300px;
     height: 200px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    margin-top: 10px;    
+}
+
+.previo2 {
+    width: 300px;
+    height: 200px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    margin-top: -10px;    
 }
 
 /* colocar titulo abajo de la imagen cuando se reduzca la pantalla y centrado en la pantalla*/
@@ -199,12 +216,27 @@ mat-datepicker {
     }
 
     .boton {
-        width: 84%;
+        width: 300px;
     }
 
     .boton2 {
-        width: 85%;
+        width: 300px;
         margin-left: 30px;
+    }
+
+    .previo{
+        height: 300px;
+        margin-top: 130px;
+        margin-left: -50px;
+        transform: rotate(-90deg);
+        margin-bottom: 50px;
+    }
+
+    .previo2{
+        height: 300px;
+        margin-left: -50px;
+        transform: rotate(-90deg);
+        margin-top: 130px;
     }
 }
 
@@ -217,7 +249,7 @@ mat-datepicker {
     .head {
         height: 100px;
         width: 100%;
-        box-sizing: content-box;
+        
     }
 
     .formulario {
@@ -243,6 +275,15 @@ mat-datepicker {
     .boton2 {
         width: 85%;
         margin-left: -50px;
+        
+    }
+
+    .previo{
+        margin-left: -50px;
+    }
+
+    .previo2{
+        margin-left: -130px;
     }
     
 }
