@@ -13,6 +13,15 @@
     box-sizing: content-box;
 }
 
+
+.numeroHijos, .datosPapa, .datrosMama{
+  width: 100%;
+}
+
+.head .hijos, .head .papa, .head .mama, .head .datosEmpresa{
+  flex: 1;
+}
+
 .logo {
     height: 60px;
     background-color: #8DD603;
@@ -46,14 +55,6 @@ h1:nth-child(2) {
 }
 
 
-.fila1 {
-    width: 95%;
-    height: 100%;
-    /* centrar div horizontalmente */
-    margin: 0 auto;
-}
-
-/* columna1 el texto de auto acomoda en la pantalla */
 .datos {
     width: 100%;
     height: 100%;
@@ -62,30 +63,29 @@ h1:nth-child(2) {
     flex-wrap: wrap;
 }
 
+.opciones{
+  float: left;
+  margin-right: 110px;
+
+}
+
 .example-section {
     margin-left: 30px;
     margin-bottom: 20px;
+    width: 30%;
 }
 
 .example-section h3 {
     font-family: 'Open Sans';
 }
 
-.example-margin {
-    margin: 0 12px;
-}
 
-.example-month-picker .mat-calendar-period-button {
-    pointer-events: none;
-}
-
-.example-month-picker .mat-calendar-arrow {
-    display: none;
-}
 
 mat-checkbox {
     font-family: 'Open Sans';
     font-size: 12pt;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 mat-form-field {
@@ -150,21 +150,21 @@ mat-datepicker {
 .previo {
     width: 300px;
     height: 200px;
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 150px;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 
 .previo2 {
     width: 300px;
     height: 200px;
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 150px;
-    margin-top: -10px;    
+    margin-top: -10px;
 }
 
 /* colocar titulo abajo de la imagen cuando se reduzca la pantalla y centrado en la pantalla*/
@@ -249,7 +249,7 @@ mat-datepicker {
     .head {
         height: 100px;
         width: 100%;
-        
+
     }
 
     .formulario {
@@ -275,7 +275,7 @@ mat-datepicker {
     .boton2 {
         width: 85%;
         margin-left: -50px;
-        
+
     }
 
     .previo{
@@ -285,5 +285,5 @@ mat-datepicker {
     .previo2{
         margin-left: -130px;
     }
-    
+
 }

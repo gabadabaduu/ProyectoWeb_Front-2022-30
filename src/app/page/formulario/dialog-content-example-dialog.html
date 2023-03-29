@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Tratamiento de Datos</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Los datos personales aquí suministrados serán recolectados, almacenados, procesados, usados, compilados,
+    transmitidos, transferidos, actualizados y dispuestos conforme lo establece la Ley 1581 de 2012, el Decreto 1377 de
+    2013, compilado en el capítulo 25 del Decreto 1074 de 2015 y la Política de Tratamiento y Protección de Datos
+    Personales de la compañía. Como responsable del tratamiento de los datos personales aquí consignados, en
+    cumplimiento de la Ley 1581 de 2012 y del Decreto 1377 de 2013, informamos al titular de los datos personales que le
+    asisten los siguientes derechos: acceder a sus datos personales; conocer, actualizar y rectificar sus datos
+    personales; solicitar prueba de la autorización otorgada; revocar la autorización y/o solicitar la supresión del
+    dato.</p>
+  <p>
+    Por lo anterior autorizo de manera libre, voluntaria, previa, explícita, informada e inequívoca a mi empleador, para
+    que en los términos legalmente establecidos realice la recolección, almacenamiento, uso, circulación, supresión y en
+    general, el tratamiento de los datos personales que he procedido a entregar o que entregaré, en virtud de las
+    relaciones legales, contractuales, o de cualquier otra que surja, en desarrollo y ejecución de tales relaciones.
+    Dicha autorización para adelantar el tratamiento de mis datos personales, se extiende durante la totalidad del
+    tiempo en el que pueda llegar consolidarse un vínculo o este persista por cualquier circunstancia y con
+    posterioridad al finiquito del mismo, siempre que tal tratamiento se encuentre relacionado con las finalidades para
+    las cuales los datos personales, fueron inicialmetante suministrados.
+  </p>
+
+  <h3>¿Acepta la politica de tratamientos de datos personales?</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" mat-dialog-close (click)="Noacepto()" >No acepto</button>
+  <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Acepto</button>
+</mat-dialog-actions>
