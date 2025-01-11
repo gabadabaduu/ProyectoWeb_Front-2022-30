@@ -167,6 +167,15 @@ export class FormularioComponent implements OnInit {
     this.openDialog();
   }
 
+  //Funcion para extraer el contenido del otro html
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   guardarDatos() { }
 
 
@@ -259,7 +268,7 @@ export class FormularioComponent implements OnInit {
 
   listaDuracion: any[] = ["Menos de un mes", "3 meses", "6 meses", "1 año", "2 años", "Mas de 2 años", "Toda la vida"];
 
-  listatiposVivienda: any[] = ["Casa", "Apartamento","Casa-lote","Finca","Habitación"];
+  listatiposVivienda: any[] = ["Casa", "Apartamento", "Casa-lote", "Finca", "Habitación"];
 
   listaPosiblesRespuestasConquienVive: any[] = [
     "Amigos", "Abuelo", "Abuela", "Pareja", "Papa", "Mama", "Hermano", "Hermana",
@@ -272,7 +281,7 @@ export class FormularioComponent implements OnInit {
 
   opcionesDeExperiencia: any[] = ["Sector Floricultor (Poscosecha- Clasificación, Boncheo, Empaque, Cuarto frío)", "Sector Floricultor (Calidad- Mipe)", "Sector Floricultor (área de mantenimiento- Ornatos, Trabajo en alturas, Mecánicos, Jefaturas y supervisión)", "Sector Comercial (Ventas)", "Sector Industrial (Alimentos- Textil- Transporte)", "Sector Financiero", "Sector Administrativo y Contable", "Sin experiencia"]
 
-  tiempoTrabajado: any[]= ["De 15 días a 1 mes (Una temporada)", "De 2 a 6 meses", "Más de 6 meses", "Un año o más", "Añadir opción o añadir respuesta 'Otro'"]
+  tiempoTrabajado: any[] = ["De 15 días a 1 mes (Una temporada)", "De 2 a 6 meses", "Más de 6 meses", "Un año o más", "Añadir opción o añadir respuesta 'Otro'"]
 
 
   clearAux() {
@@ -310,14 +319,7 @@ export class FormularioComponent implements OnInit {
 
 
 
-  //Funcion para extraer el contenido del otro html
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
   // Funciones para seleccionar la foto o tamarla desde el celular
   capturarFile(event: any) {
