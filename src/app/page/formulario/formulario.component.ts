@@ -1,382 +1,349 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
-import { MatDatepicker } from '@angular/material/datepicker';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { HojaDeVida } from 'src/app/model/hoja-de-vida';
+import {
+  Component,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
+  ElementRef
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormArray
+} from '@angular/forms';
 
+interface SectionDef {
+  key: string;
+  label: string;
+  requiredControls: string[];
+}
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
+export class FormularioComponent implements AfterViewInit {
 
-export class FormularioComponent implements OnInit {
-  datosHoja: HojaDeVida = new HojaDeVida();
-  escolaridadSeleccionada: string | undefined;
   formHojaDeVida: FormGroup;
 
-  constructor(private sanitizer: DomSanitizer, public dialog: MatDialog) {
-    const controles = this.listaPosiblesRespuestasConquienVive.map(() => new FormControl(false));
-    const controles2 = this.listaPosiblesRespuestasPersonasACargo.map(() => new FormControl(false));
-
-    this.formHojaDeVida = new FormGroup({
-      'aux': new FormControl('', Validators.required),
-      'aux2': new FormControl('', Validators.required),
-      'aux3': new FormControl('', Validators.required),
-      'aux4': new FormControl('', Validators.required),
-      'aux5': new FormControl('', Validators.required),
-      'aux6': new FormControl('', Validators.required),
-      'aux7': new FormControl('', Validators.required),
-      'aux8': new FormControl('', Validators.required),
-      'aux9': new FormControl('', Validators.required),
-      'aux10': new FormControl('', Validators.required),
-      'aux11': new FormControl('', Validators.required),
-      'aux12': new FormControl('', Validators.required),
-      'aux13': new FormControl('', Validators.required),
-
-
-
-      // Datos personales
-      'numeroCedula': new FormControl('', Validators.required),
-      'pApellido': new FormControl('', Validators.required),
-      'sApellido': new FormControl(''),
-      'pNombre': new FormControl('', Validators.required),
-      'sNombre': new FormControl(''),
-      'estadoC': new FormControl('', Validators.required),
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'direccion': new FormControl('', Validators.required),
-      'barrio': new FormControl('', Validators.required),
-      'telefonoCelular': new FormControl('', Validators.required),
-      'Ciudad': new FormControl('', Validators.required),
-      'departamentoExpe': new FormControl('', Validators.required),
-      'departamentoNaci': new FormControl('', Validators.required),
-      'nacionalidad': new FormControl('', Validators.required),
-
-      //Datos cedula
-      'FechaNacimiento': new FormControl('', Validators.required),
-      'FechaExpedicion': new FormControl('', Validators.required),
-      'RH': new FormControl('', Validators.required),
-      'genero': new FormControl('', Validators.required),
-      'nivelEscolaridad': new FormControl('', Validators.required),
-      'nombreInstitucion': new FormControl('', Validators.required),
-      'anofinalizacion': new FormControl('', Validators.required),
-      'tituloObtenido': new FormControl('', Validators.required),
-
-      //Datos Tallas
-      'tallaChaqueta': new FormControl('', Validators.required),
-      'tallaPantalon': new FormControl('', Validators.required),
-      'tallaCamisa': new FormControl('', Validators.required),
-      'tallaCalzado': new FormControl('', Validators.required),
-
-      //Datos Familiares
-      'NombreFamiliar': new FormControl('', Validators.required),
-      'ParentescoFamiliar': new FormControl('', Validators.required),
-      'DireccionFamiliar': new FormControl('', Validators.required),
-      'BarrioFamiliar': new FormControl('', Validators.required),
-      'TelefonoFamiliar': new FormControl('', Validators.required),
-      'OcupacionFamiliar': new FormControl('', Validators.required),
-
-      //Datos Pareja
-      'NombrePareja': new FormControl('', Validators.required),
-      'DireccionPareja': new FormControl('', Validators.required),
-      'BarrioPareja': new FormControl('', Validators.required),
-      'TelefonoPareja': new FormControl('', Validators.required),
-      'OcupacionPareja': new FormControl('', Validators.required),
-
-      //Datos Hijos mejorar juan pablo por favor
-      'NumeroHijos': new FormControl('', Validators.required),
-      'GeneroHijo': new FormControl('', Validators.required),
-      'Fecha nacimiento': new FormControl('', Validators.required),
-      'NumeroDocumento': new FormControl('', Validators.required),
-      'Curso': new FormControl('', Validators.required),
-      'Ocupacion': new FormControl('', Validators.required),
-
-
-      // Datos del padre
-      'NombrePadre': new FormControl('', Validators.required),
-      'OcupacionPadre': new FormControl('', Validators.required),
-      'DirreccionPadre': new FormControl('', Validators.required),
-      'TelefonoPadre': new FormControl('', Validators.required),
-      'Barrio Padre': new FormControl('', Validators.required),
-
-      // Datos de la madre
-      'NombreMadre': new FormControl('', Validators.required),
-      'OcupacionMadre': new FormControl('', Validators.required),
-      'DirreccionMadre': new FormControl('', Validators.required),
-      'TelefonoMadre': new FormControl('', Validators.required),
-      'BarrioMadre': new FormControl('', Validators.required),
-
-      // Datos referencia
-      'NombreReferencia': new FormControl('', Validators.required),
-      'OcupacionReferencia': new FormControl('', Validators.required),
-      'TelefonoReferencia': new FormControl('', Validators.required),
-
-      //Datos Empresa flores
-      'NombreEmpresa': new FormControl('', Validators.required),
-      'DireccionEmpresa': new FormControl('', Validators.required),
-      'telefonoEmpresa': new FormControl('', Validators.required),
-      'nombreJefeInmediato': new FormControl('', Validators.required),
-      'CargoEmpresa': new FormControl('', Validators.required),
-      'fechaRetiroEmpresa': new FormControl('', Validators.required),
-      'MotivodeRetiroEmpresa': new FormControl('', Validators.required),
-      'EnqueAreaTieneExperiencia': new FormControl('', Validators.required),
-      'TiempoTrabajado': new FormControl('', Validators.required),
-
-
-
-      //Datos Prueba Conocimientos
-      'NombresEmpresasFlores': new FormControl('', Validators.required),
-      'AreasEmpresasFlores': new FormControl('', Validators.required),
-      'CaliRenEmpresasFlores': new FormControl('', Validators.required),
-      'PorqueCali': new FormControl('', Validators.required),
-
-      //Datos Entrevista Virtual
-      'CuantoViveEnlaZona': new FormControl('', Validators.required),
-      'TipoVivienda': new FormControl('', Validators.required),
-      opcionesSeleccionadas: new FormArray(controles),
-      'estudiaActualmente': new FormControl('', Validators.required),
-      opcionesSeleccionadas2: new FormArray(controles),
-      'HijosACargo': new FormControl('', Validators.required),
-      'QuienLosCuida': new FormControl('', Validators.required),
-
-
-      //Con quien vive
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    });
-
-  }
-
-  ngOnInit(): void {
-    this.openDialog();
-  }
-
-  //Funcion para extraer el contenido del otro html
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  guardarDatos() { }
-
-
-
-
-  hijos: number[] = [0, 1, 2, 3, 4, 5];
-
-  //  Lista estado civil
-  estadosCiviles: any[] = [
-    {
-      codigo: "SO",
-      descripcion: "SO (Soltero)"
-    },
-    {
-      codigo: "UL",
-      descripcion: "UL (Unión Libre) "
-    },
-    {
-      codigo: "CA",
-      descripcion: "CA (Casado)"
-    },
-    {
-      codigo: "SE",
-      descripcion: "SE (Separado)"
-    },
-    {
-      codigo: "VI",
-      descripcion: "VI (Viudo)"
-    }
+  // Meta de secciones (ajusta etiquetas según necesidad)
+  sectionMeta: SectionDef[] = [
+    { key: 'datosPersonales',     label: 'Datos personales',        requiredControls: ['numeroCedula','primerApellido','primerNombre','email','direccion'] },
+    { key: 'datosCedula',         label: 'Datos cédula',            requiredControls: ['fechaNacimiento','fechaExpedicion','rh','genero'] },
+    { key: 'datosEscolares',      label: 'Datos escolares',         requiredControls: ['nivelEscolaridad','nombreInstitucion'] },
+    { key: 'datosTallas',         label: 'Tallas',                  requiredControls: [] },
+    { key: 'datosFamiliares',     label: 'Contacto emergencia',     requiredControls: ['nombreFamiliar','parentescoFamiliar','telefonoFamiliar'] },
+    { key: 'datosPareja',         label: 'Pareja',                  requiredControls: [] },
+    { key: 'datosHijos',          label: 'Hijos',                   requiredControls: [] },
+    { key: 'datosPadre',          label: 'Padre',                   requiredControls: [] },
+    { key: 'datosMadre',          label: 'Madre',                   requiredControls: [] },
+    { key: 'datosReferencia',     label: 'Referencia',              requiredControls: ['nombreReferencia','telefonoReferencia'] },
+    { key: 'experienciaLaboral',  label: 'Experiencia laboral',     requiredControls: [] },
+    { key: 'entrevistaVirtual',   label: 'Entrevista virtual',      requiredControls: [] },
+    { key: 'familia',             label: 'Familia',                 requiredControls: [] },
+    { key: 'publicidad',          label: 'Publicidad',              requiredControls: ['medioPublicidadSelect'] },
   ];
 
-  listadoDeNacionalidades: any[] = ["Colombiana", "Venezolana", "Estadounidense", "Ecuatoriana", "Peruana", "Española", "Cubana", "Argentina", "Mexicana"];
-
-  listadoDepartamentos: any[] = ["Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Bogotá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada"]
-
-  listatiposdesangre: any[] = ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"];
-
-  listaGenero: any[] = ["M", "F"];
-
-  opcionBinaria: any[] = ["Si", "No"];
-
-  listamanos: any[] = [
-    {
-      mano: "Zurdo",
-      descripcion: "Zurdo (Escribe con la mano izquierda)"
-    },
-    {
-      mano: "Diestro",
-      descripcion: "Diestro (Escribe con la mano derecha)"
-    }
-  ];
-
-  listaEscolaridad: any[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "Otro"];
-
-  listaEscoText: any[] = [
-    {
-      esco: "Educación básica primaria",
-      descripcion: "Educación básica primaria - 1 a 5 Grado"
-    },
-    {
-      esco: "Educación básica secundaria",
-      descripcion: "Educación básica secundaria - 6 a 9 Grado"
-    },
-    {
-      esco: "Educación media académica",
-      descripcion: "Educación básica secundaria - 10 a 11 Grado"
-    },
-    {
-      esco: "Otro",
-      descripcion: "Otro (Escribir primero titulo luego nombre) Ej: Técnico Electricista"
-    }
-
-  ];
-
-  tallas: any[] = ["4", "6", "8", "10", "12", "14", "16", "34", "36", "38", "40", "42", "44"];
-
-  tallasCalzado: any[] = ["35", "36", "37", "39", "40", "41", "42", "44"];
-
-  listaParentescosFamiliares: any[] = [
-    "Padre", "Madre", "Abuelo/Abuela", "Bisabuelo/Bisabuela", "Tío/Tía", "Primo/Prima", "Sobrino/Sobrina", "Hermano/Hermana", "Cuñado/Cuñada", "Esposo/Esposa", "Hijo/Hija", "Nieto/Nieta", "Bisnieto/Bisnieta", "Suegro/Suegra", "Yerno/Nuera", "Hermanastro/Hermanastra", "Medio hermano/Media hermana", "Padre adoptivo", "Madre adoptiva", "Hijo adoptivo", "Hija adoptiva", "Abuelo adoptivo", "Abuela adoptiva", "Padre biológico", "Madre biológica", "Hijo biológico", "Hija biológica", "Padre de crianza", "Madre de crianza", "Hijo de crianza", "Hija de crianza", "Tutor legal", "Curador legal", "Padrino/Madrina", "Compadre/Comadre", "Concubino/Concubina", "Ex-esposo/Ex-esposa", "Amigo/Amiga", "Ninguno"
-  ];
-
-  Ocupacion: any[] = ["Empleado", "Independiente", "Hogar (Am@ de casa)", "Desempleado", "Otro"];
-
-  listaMotivosRetiro: any[] = ["Renuncia voluntaria", "Despido", "Reducción de personal", "Cierre de la empresa", "Fin de contrato temporal", "Abandono de cargo"]
-
-  listaAreas: any[] = ["Cultivo", "Poscosecha", "Ambas", "Otro"];
-
-  listaCalificaciones: any[] = ["Bajo", "Medio", "Excelente"];
-
-  listaDuracion: any[] = ["Menos de un mes", "3 meses", "6 meses", "1 año", "2 años", "Mas de 2 años", "Toda la vida"];
-
-  listatiposVivienda: any[] = ["Casa", "Apartamento", "Casa-lote", "Finca", "Habitación"];
-
-  listaPosiblesRespuestasConquienVive: any[] = [
-    "Amigos", "Abuelo", "Abuela", "Pareja", "Papa", "Mama", "Hermano", "Hermana",
-    "Tio", "Tia", "Primo", "Prima", "Sobrino", "Sobrina"
-  ];
-
-  listaPersonasQueCuidan: any[] = ["Yo", "Pareja", "Abuelos", "Tios", "Amigos", "Jardín", "Son independientes", "Familia (Si los cuida mas de un familiar o son parientes de mi pareja)", "No tiene hijos", "Colegio", "Universidad", "Amig@s", "Niñera", "Cuñad@", "Dueña apartamento"]
-
-  listaPosiblesRespuestasPersonasACargo: any[] = ["Hijos", "Abuelos", "Papas", "Hermanos", "Personas con cuidados especialas", "Otro", "Tios"]
-
-  opcionesDeExperiencia: any[] = ["Sector Floricultor (Poscosecha- Clasificación, Boncheo, Empaque, Cuarto frío)", "Sector Floricultor (Calidad- Mipe)", "Sector Floricultor (área de mantenimiento- Ornatos, Trabajo en alturas, Mecánicos, Jefaturas y supervisión)", "Sector Comercial (Ventas)", "Sector Industrial (Alimentos- Textil- Transporte)", "Sector Financiero", "Sector Administrativo y Contable", "Sin experiencia"]
-
-  tiempoTrabajado: any[] = ["De 15 días a 1 mes (Una temporada)", "De 2 a 6 meses", "Más de 6 meses", "Un año o más", "Añadir opción o añadir respuesta 'Otro'"]
-
-
-  clearAux() {
-    this.formHojaDeVida.get('aux')?.setValue('');
-  }
-
-
-  // Comenzar las fechas desde un año en especifico
+  currentIndex = 0;
+  progressPercent = 0;
   startDate = new Date(1990, 0, 1);
 
-  // visualizaciones las capturas de la cedula
-  public previsualizacion: string | undefined;
-  public previsualizacion2: string | undefined;
-  public archivos: any = [];
+  // Catálogos
+  estadosCiviles = [
+    { codigo:'SO', descripcion:'Soltero(a)' },
+    { codigo:'UL', descripcion:'Unión Libre' },
+    { codigo:'CA', descripcion:'Casado(a)' },
+    { codigo:'SE', descripcion:'Separado(a)' },
+    { codigo:'VI', descripcion:'Viudo(a)' },
+  ];
+  nacionalidades = ['Colombiana','Venezolana','Peruana','Ecuatoriana','Argentina','Mexicana','Otra'];
+  departamentos = ['Amazonas','Antioquia','Arauca','Atlántico','Bogotá','Cundinamarca','Meta','Valle del Cauca'];
+  tiposSangre = ['O+','O-','A+','A-','B+','B-','AB+','AB-'];
+  generos = ['M','F','Otro'];
+  manos = [{ valor:'Izquierda', desc:'Zurdo' }, { valor:'Derecha', desc:'Diestro' }];
+  nivelesEscolaridad = ['Primaria','Secundaria','Bachiller','Técnico','Tecnólogo','Profesional','Otro'];
+  tallas = ['XS','S','M','L','XL','XXL'];
+  tallasCalzado = ['35','36','37','38','39','40','41','42','43','44'];
+  parentescos = ['Padre','Madre','Hijo','Hija','Hermano','Hermana','Esposo','Esposa','Otro'];
+  ocupaciones = ['Empleado','Independiente','Hogar','Desempleado','Otro'];
+  opcionSiNo = ['Si','No'];
+  hijosPosibles = [0,1,2,3,4,5,6];
+  cursosHijos = ['En casa','Preescolar','1','2','3','4','5','6','7','8','9','10','11','Técnico','Universidad'];
+  actividadesHijos = ['En casa','Estudia','Trabaja'];
+  motivosRetiro = ['Renuncia','Despido','Fin contrato','Reducción','Otro'];
+  experienciaAreas = ['Operativo','Administrativo','Comercial','Producción','Campo','Sin experiencia'];
+  tiemposTrabajo = ['< 6 meses','6-12 meses','1-2 años','> 2 años'];
+  duracionZona = ['< 1 año','1-3 años','3-5 años','> 5 años'];
+  tiposVivienda = ['Casa','Apartamento','Finca','Habitación','Otro'];
+  quienCuida = ['Yo','Pareja','Abuelos','Familiar','Niñera','Guardería','Colegio','Independientes'];
+  respuestasConQuienVive = ['Solo(a)','Pareja','Padres','Hijos','Amigos','Otros'];
+  respuestasPersonasACargo = ['Hijos','Padres','Pareja','Otros'];
+  calificaciones = ['Excelente','Buena','Regular','Baja'];
 
-  get nivelEscolaridad() {
-    return this.formHojaDeVida.get('nivelEscolaridad') as FormControl
+  // Previews archivos
+  previsualizacionFrontal: string | null = null;
+  previsualizacionPosterior: string | null = null;
+
+  @ViewChildren('formSection') sectionEls!: QueryList<ElementRef<HTMLElement>>;
+
+  constructor(private fb: FormBuilder) {
+    this.formHojaDeVida = this.fb.group({
+
+      // Datos personales
+      numeroCedula: ['', [Validators.required, Validators.minLength(5)]],
+      primerApellido: ['', Validators.required],
+      segundoApellido: [''],
+      primerNombre: ['', Validators.required],
+      segundoNombre: [''],
+      estadoCivil: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      direccion: ['', Validators.required],
+      barrio: [''],
+      telefonoCelular: [''],
+      ciudadResidencia: [''],
+      departamentoResidencia: [''],
+      departamentoNacimiento: [''],
+      nacionalidad: [''],
+
+      // Cédula / identidad
+      fechaNacimiento: ['', Validators.required],
+      fechaExpedicion: ['', Validators.required],
+      rh: ['', Validators.required],
+      genero: ['', Validators.required],
+      manoDominante: [''],
+
+      // Escolares
+      nivelEscolaridad: [''],
+      nivelEscolaridadOtro: [''],
+      nombreInstitucion: [''],
+      anoFinalizacion: [''],
+      tituloObtenido: [''],
+      tituloObtenidoOtro: [''],
+
+      // Tallas
+      tallaChaqueta: [''],
+      tallaPantalon: [''],
+      tallaCamisa: [''],
+      tallaCalzado: [''],
+
+      // Contacto emergencia
+      nombreFamiliar: [''],
+      parentescoFamiliar: [''],
+      telefonoFamiliar: [''],
+      direccionFamiliar: [''],
+      barrioFamiliar: [''],
+      ocupacionFamiliar: [''],
+
+      // Pareja
+      tienePareja: ['No'],
+      nombrePareja: [''],
+      ocupacionPareja: [''],
+      direccionPareja: [''],
+      telefonoPareja: [''],
+      barrioPareja: [''],
+
+      // Hijos
+      numeroHijos: [0],
+      hijos: this.fb.array([]),
+
+      // Padre
+      padreVivo: ['No'],
+      nombrePadre: [''],
+      ocupacionPadre: [''],
+      direccionPadre: [''],
+      telefonoPadre: [''],
+      barrioPadre: [''],
+
+      // Madre
+      madreViva: ['No'],
+      nombreMadre: [''],
+      ocupacionMadre: [''],
+      direccionMadre: [''],
+      telefonoMadre: [''],
+      barrioMadre: [''],
+
+      // Referencia
+      nombreReferencia: [''],
+      telefonoReferencia: [''],
+      ocupacionReferencia: [''],
+
+      // Experiencia laboral
+      tieneExperiencia: ['No'],
+      empresaAnterior: [''],
+      direccionEmpresa: [''],
+      telefonoEmpresa: [''],
+      nombreJefeInmediato: [''],
+      cargoEmpresa: [''],
+      fechaRetiroEmpresa: [''],
+      motivoRetiroEmpresa: [''],
+      areaExperiencia: [''],
+      tiempoTrabajado: [''],
+      empresasFlores: [''],
+      areaFloresSelect: [''],
+      areaFloresOtro: [''],
+      calificacionRendimiento: [''],
+      razonCalificacion: [''],
+
+      // Entrevista / entorno
+      tiempoZona: [''],
+      tipoVivienda: [''],
+      estudiaActualmente: ['No'],
+      hijosACargo: [''],
+      quienLosCuida: [''],
+      conQuienVive: this.fb.array(this.respuestasConQuienVive.map(() => this.fb.control(false))),
+      personasACargo: this.fb.array(this.respuestasPersonasACargo.map(() => this.fb.control(false))),
+
+      // Familia
+      relacionFamiliar: [''],
+      motivosFelicitacion: [''],
+      conflictosLaborales: ['No'],
+      conflictosDetalle: [''],
+      proyectoVida: [''],
+      experienciaSignificativa: [''],
+
+      // Publicidad
+      medioPublicidadSelect: [''],
+      medioPublicidadOtro: [''],
+    });
+
+    // Sincronizar hijos dinámicos
+    this.formHojaDeVida.get('numeroHijos')?.valueChanges
+      .subscribe(v => this.syncHijos(v || 0));
+    this.syncHijos(0);
   }
 
-  mostrar13 = false;
-  mostrar14 = false;
-  mostrar15 = false;
-  mostrar16 = false;
-  mostrar17 = false;
-  mostrar18 = false;
-
-  checked = false;
-  indeterminate = false;
-  disabled = false;
-
-  ver(): void {
-    console.log(this.formHojaDeVida.value)
-    console.log(this.datosHoja)
+  ngAfterViewInit(): void {
+    this.updateProgress();
   }
 
-
-
-
-
-  // Funciones para seleccionar la foto o tamarla desde el celular
-  capturarFile(event: any) {
-    const archivoCapturado = event.target.files[0]
-    this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.previsualizacion = imagen.base;
-      console.log(imagen);
-    })
+  // ---------- Getters ----------
+  get hijosArray(): FormArray {
+    return this.formHojaDeVida.get('hijos') as FormArray;
   }
 
-  capturarFile2(event: any) {
-    const archivoCapturado = event.target.files[0]
-    this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.previsualizacion2 = imagen.base;
-      console.log(imagen);
-    })
+  // ---------- Hijos dinámicos ----------
+  private buildHijoGroup(): FormGroup {
+    return this.fb.group({
+      nombre: [''],
+      sexo: [''],
+      fechaNacimiento: [''],
+      documento: [''],
+      curso: [''],
+      actividad: ['']
+    });
   }
 
-  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
-    try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-      const reader = new FileReader();
-      reader.readAsDataURL($event);
-      reader.onload = () => {
-        resolve({
-          base: reader.result
-        });
-      };
-      reader.onerror = error => {
-        resolve({
-          base: null
-        });
-      };
-      return image;
-    } catch (e) {
-      return null;
+  private syncHijos(cantidad: number): void {
+    const arr = this.hijosArray;
+    const actual = arr.length;
+    if (cantidad > actual) {
+      for (let i = actual; i < cantidad; i++) {
+        arr.push(this.buildHijoGroup());
+      }
+    } else if (cantidad < actual) {
+      for (let i = actual - 1; i >= cantidad; i--) {
+        arr.removeAt(i);
+      }
     }
   }
-  )
 
-  clearImage(): any {
-    this.previsualizacion = '';
-    this.archivos = [];
+  // ---------- Navegación secciones ----------
+  @ViewChildren('formSection') private sectionRefs!: QueryList<ElementRef<HTMLElement>>;
+
+  goNext(): void {
+    if (this.currentIndex < this.sectionMeta.length - 1) {
+      this.currentIndex++;
+      this.scrollCurrent();
+      this.updateProgress();
+    }
   }
-}
 
-// exportacion de la pagina modal de tratamiento de datos
-@Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.html',
+  goPrev(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.scrollCurrent();
+      this.updateProgress();
+    }
+  }
 
-})
-export class DialogContentExampleDialog {
-  constructor(private _router: Router) { }
+  goTo(i: number): void {
+    this.currentIndex = i;
+    this.scrollCurrent();
+    this.updateProgress();
+  }
 
-  Noacepto() {
-    this._router.navigate(['']);
+  private scrollCurrent(): void {
+    const el = this.sectionRefs?.toArray()[this.currentIndex]?.nativeElement;
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  isSectionValid(index: number): boolean {
+    const meta = this.sectionMeta[index];
+    if (!meta || meta.requiredControls.length === 0) return true;
+    return meta.requiredControls.every(c => this.formHojaDeVida.get(c)?.valid);
+  }
+
+  isWholeFormValid(): boolean {
+    return this.formHojaDeVida.valid;
+  }
+
+  private updateProgress(): void {
+    if (this.sectionMeta.length > 1) {
+      this.progressPercent = (this.currentIndex) / (this.sectionMeta.length - 1) * 100;
+    } else {
+      this.progressPercent = 0;
+    }
+  }
+
+  // ---------- Archivos ----------
+  onFileFrontal(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+    this.fileToBase64(file).then(b => this.previsualizacionFrontal = b);
+  }
+
+  onFilePosterior(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+    this.fileToBase64(file).then(b => this.previsualizacionPosterior = b);
+  }
+
+  private fileToBase64(file: File): Promise<string> {
+    return new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => resolve('');
+      reader.readAsDataURL(file);
+    });
+  }
+
+  limpiarImagenes(): void {
+    this.previsualizacionFrontal = null;
+    this.previsualizacionPosterior = null;
+  }
+
+  // ---------- Submit ----------
+  onSubmit(): void {
+    if (!this.formHojaDeVida.valid) {
+      this.formHojaDeVida.markAllAsTouched();
+      // saltar a primera sección inválida si aplica
+      const idx = this.sectionMeta.findIndex(s =>
+        s.requiredControls.some(ctrl => this.formHojaDeVida.get(ctrl)?.invalid)
+      );
+      if (idx >= 0) {
+        this.currentIndex = idx;
+        this.scrollCurrent();
+        this.updateProgress();
+      }
+      return;
+    }
+    console.log('Formulario válido. Payload:', this.formHojaDeVida.value);
+  }
+
+  // ---------- Utilidad debug ----------
+  ver(): void {
+    console.log('Valores:', this.formHojaDeVida.value);
+    console.log('Validez:', this.formHojaDeVida.valid);
   }
 }
