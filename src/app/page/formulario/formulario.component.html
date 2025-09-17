@@ -27,11 +27,13 @@
   </div>
 
   <h1 class="titulo-form">Formulario de contratación</h1>
-  <button type="button" (click)="ver()">Debug valores</button>
+  <button type="button" class="debug-btn" (click)="ver()">Debug valores</button>
 
   <form [formGroup]="formHojaDeVida" (ngSubmit)="onSubmit()">
 
+    <!-- ========================================================= -->
     <!-- 1. DATOS PERSONALES -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosPersonales" #formSection>
       <div class="title"><h2>Datos personales</h2></div>
       <div class="datos">
@@ -68,12 +70,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Correo electrónico</mat-label>
           <input matInput type="email" formControlName="email">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-full">
           <mat-label>Dirección</mat-label>
           <input matInput formControlName="direccion">
         </mat-form-field>
@@ -89,19 +91,19 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Ciudad residencia</mat-label>
+          <mat-label>Ciudad de residencia</mat-label>
           <input matInput formControlName="ciudadResidencia">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Departamento residencia</mat-label>
+          <mat-label>Departamento de residencia</mat-label>
           <mat-select formControlName="departamentoResidencia">
             <mat-option *ngFor="let d of departamentos" [value]="d">{{ d }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Departamento nacimiento</mat-label>
+          <mat-label>Departamento de nacimiento</mat-label>
           <mat-select formControlName="departamentoNacimiento">
             <mat-option *ngFor="let d of departamentos" [value]="d">{{ d }}</mat-option>
           </mat-select>
@@ -116,13 +118,16 @@
 
       </div>
       <div class="section-footer">
-        <button type="button" class="next-arrow" (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
+        <button type="button" class="next-arrow"
+                (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
           <span>Continuar</span><span class="icon">↓</span>
         </button>
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 2. DATOS CÉDULA -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosCedula" #formSection>
       <div class="title"><h2>Datos cédula</h2></div>
       <div class="datos">
@@ -162,46 +167,43 @@
           </mat-select>
         </mat-form-field>
 
-        <!-- Archivos cédula -->
-        <div class="file">
-          <input
-            type="file"
-            #cedulaFrontal
-            class="input-file"
-            accept="image/*"
-            (change)="onFileFrontal($event)">
+        <!-- Archivo frontal -->
+        <div class="file campo-2">
+          <input type="file" #cedulaFrontal class="input-file" accept="image/*"
+                 (change)="onFileFrontal($event)">
           <button type="button" class="boton" (click)="cedulaFrontal.click()">Foto frontal cédula</button>
           <div class="preview-img" *ngIf="previsualizacionFrontal">
             <img [src]="previsualizacionFrontal" alt="Cédula frontal">
           </div>
         </div>
 
-        <div class="file">
-          <input
-            type="file"
-            #cedulaPosterior
-            class="input-file"
-            accept="image/*"
-            (change)="onFilePosterior($event)">
+        <!-- Archivo posterior -->
+        <div class="file campo-2">
+          <input type="file" #cedulaPosterior class="input-file" accept="image/*"
+                 (change)="onFilePosterior($event)">
           <button type="button" class="boton2" (click)="cedulaPosterior.click()">Foto posterior cédula</button>
-            <div class="preview-img" *ngIf="previsualizacionPosterior">
-              <img [src]="previsualizacionPosterior" alt="Cédula posterior">
-            </div>
+          <div class="preview-img" *ngIf="previsualizacionPosterior">
+            <img [src]="previsualizacionPosterior" alt="Cédula posterior">
+          </div>
         </div>
 
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
-        <button type="button" class="next-arrow" (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
+        <button type="button" class="next-arrow"
+                (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
           <span>Continuar</span><span class="icon">↓</span>
         </button>
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 3. DATOS ESCOLARES -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosEscolares" #formSection>
       <div class="title"><h2>Datos escolares</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Nivel de escolaridad</mat-label>
           <mat-select formControlName="nivelEscolaridad">
@@ -209,12 +211,13 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" *ngIf="formHojaDeVida.get('nivelEscolaridad')?.value === 'Otro'">
+        <mat-form-field appearance="fill"
+                        *ngIf="formHojaDeVida.get('nivelEscolaridad')?.value === 'Otro'">
           <mat-label>Especifique nivel</mat-label>
           <input matInput formControlName="nivelEscolaridadOtro">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Institución</mat-label>
           <input matInput formControlName="nombreInstitucion">
         </mat-form-field>
@@ -237,47 +240,57 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" *ngIf="formHojaDeVida.get('tituloObtenido')?.value === 'Otro'">
+        <mat-form-field appearance="fill"
+                        *ngIf="formHojaDeVida.get('tituloObtenido')?.value === 'Otro'">
           <mat-label>Especificar título</mat-label>
           <input matInput formControlName="tituloObtenidoOtro">
         </mat-form-field>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
-        <button type="button" class="next-arrow" (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
+        <button type="button" class="next-arrow"
+                (click)="goNext()" [disabled]="!isSectionValid(currentIndex)">
           <span>Continuar</span><span class="icon">↓</span>
         </button>
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 4. DATOS TALLAS -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosTallas" #formSection>
       <div class="title"><h2>Datos tallas</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Talla chaqueta</mat-label>
           <mat-select formControlName="tallaChaqueta">
             <mat-option *ngFor="let t of tallas" [value]="t">{{ t }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Talla pantalón</mat-label>
           <mat-select formControlName="tallaPantalon">
             <mat-option *ngFor="let t of tallas" [value]="t">{{ t }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Talla camisa</mat-label>
           <mat-select formControlName="tallaCamisa">
             <mat-option *ngFor="let t of tallas" [value]="t">{{ t }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Talla calzado</mat-label>
           <mat-select formControlName="tallaCalzado">
             <mat-option *ngFor="let c of tallasCalzado" [value]="c">{{ c }}</mat-option>
           </mat-select>
         </mat-form-field>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -287,38 +300,47 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 5. CONTACTO EMERGENCIA -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosFamiliares" #formSection>
       <div class="title"><h2>Contacto de emergencia</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Nombre</mat-label>
           <input matInput formControlName="nombreFamiliar">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Parentesco</mat-label>
           <mat-select formControlName="parentescoFamiliar">
             <mat-option *ngFor="let p of parentescos" [value]="p">{{ p }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Teléfono</mat-label>
           <input matInput formControlName="telefonoFamiliar">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Dirección</mat-label>
           <input matInput formControlName="direccionFamiliar">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Barrio</mat-label>
           <input matInput formControlName="barrioFamiliar">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Ocupación</mat-label>
           <mat-select formControlName="ocupacionFamiliar">
             <mat-option *ngFor="let o of ocupaciones" [value]="o">{{ o }}</mat-option>
           </mat-select>
         </mat-form-field>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -328,10 +350,13 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 6. PAREJA -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosPareja" #formSection>
       <div class="title"><h2>Pareja</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>¿Tiene pareja?</mat-label>
           <mat-select formControlName="tienePareja">
@@ -340,27 +365,34 @@
         </mat-form-field>
 
         <ng-container *ngIf="formHojaDeVida.get('tienePareja')?.value === 'Si'">
+
           <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="nombrePareja">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Ocupación</mat-label>
             <input matInput formControlName="ocupacionPareja">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+
+          <mat-form-field appearance="fill" class="campo-2">
             <mat-label>Dirección</mat-label>
             <input matInput formControlName="direccionPareja">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Teléfono</mat-label>
             <input matInput formControlName="telefonoPareja">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+
+            <mat-form-field appearance="fill">
             <mat-label>Barrio</mat-label>
             <input matInput formControlName="barrioPareja">
           </mat-form-field>
+
         </ng-container>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -370,10 +402,13 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 7. HIJOS -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosHijos" #formSection>
       <div class="title"><h2>Hijos</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Número de hijos</mat-label>
           <mat-select formControlName="numeroHijos">
@@ -426,6 +461,7 @@
 
           </div>
         </div>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -435,10 +471,13 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 8. PADRE -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosPadre" #formSection>
       <div class="title"><h2>Padre</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>¿Padre vivo?</mat-label>
           <mat-select formControlName="padreVivo">
@@ -447,27 +486,34 @@
         </mat-form-field>
 
         <ng-container *ngIf="formHojaDeVida.get('padreVivo')?.value === 'Si'">
+
           <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="nombrePadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Ocupación</mat-label>
             <input matInput formControlName="ocupacionPadre">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+
+          <mat-form-field appearance="fill" class="campo-2">
             <mat-label>Dirección</mat-label>
             <input matInput formControlName="direccionPadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Teléfono</mat-label>
             <input matInput formControlName="telefonoPadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Barrio</mat-label>
             <input matInput formControlName="barrioPadre">
           </mat-form-field>
+
         </ng-container>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -477,10 +523,13 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 9. MADRE -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosMadre" #formSection>
       <div class="title"><h2>Madre</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>¿Madre viva?</mat-label>
           <mat-select formControlName="madreViva">
@@ -489,27 +538,34 @@
         </mat-form-field>
 
         <ng-container *ngIf="formHojaDeVida.get('madreViva')?.value === 'Si'">
+
           <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="nombreMadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Ocupación</mat-label>
             <input matInput formControlName="ocupacionMadre">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+
+          <mat-form-field appearance="fill" class="campo-2">
             <mat-label>Dirección</mat-label>
             <input matInput formControlName="direccionMadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Teléfono</mat-label>
             <input matInput formControlName="telefonoMadre">
           </mat-form-field>
+
           <mat-form-field appearance="fill">
             <mat-label>Barrio</mat-label>
             <input matInput formControlName="barrioMadre">
           </mat-form-field>
+
         </ng-container>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -519,18 +575,23 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 10. REFERENCIA -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="datosReferencia" #formSection>
       <div class="title"><h2>Referencia</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Nombre</mat-label>
           <input matInput formControlName="nombreReferencia">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Teléfono</mat-label>
           <input matInput formControlName="telefonoReferencia">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Ocupación</mat-label>
           <input matInput formControlName="ocupacionReferencia">
@@ -542,6 +603,7 @@
             <mat-option *ngFor="let v of opcionSiNo" [value]="v">{{ v }}</mat-option>
           </mat-select>
         </mat-form-field>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -551,48 +613,59 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 11. EXPERIENCIA LABORAL -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="experienciaLaboral" #formSection>
       <div class="title"><h2>Experiencia laboral</h2></div>
       <div class="datos" *ngIf="formHojaDeVida.get('tieneExperiencia')?.value === 'Si'; else sinExp">
+
         <mat-form-field appearance="fill">
           <mat-label>Empresa</mat-label>
           <input matInput formControlName="empresaAnterior">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Dirección empresa</mat-label>
           <input matInput formControlName="direccionEmpresa">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Teléfono empresa</mat-label>
           <input matInput formControlName="telefonoEmpresa">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Jefe inmediato</mat-label>
           <input matInput formControlName="nombreJefeInmediato">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Cargo</mat-label>
           <input matInput formControlName="cargoEmpresa">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
-          <mat-label>Área experiencia</mat-label>
+          <mat-label>Área de experiencia</mat-label>
           <mat-select formControlName="areaExperiencia">
             <mat-option *ngFor="let a of experienciaAreas" [value]="a">{{ a }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
-          <mat-label>Fecha retiro</mat-label>
+          <mat-label>Fecha de retiro</mat-label>
           <input matInput [matDatepicker]="dpRet" formControlName="fechaRetiroEmpresa">
           <mat-datepicker-toggle matIconSuffix [for]="dpRet"></mat-datepicker-toggle>
           <mat-datepicker #dpRet></mat-datepicker>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
-          <mat-label>Motivo retiro</mat-label>
+          <mat-label>Motivo de retiro</mat-label>
           <mat-select formControlName="motivoRetiroEmpresa">
             <mat-option *ngFor="let m of motivosRetiro" [value]="m">{{ m }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Tiempo trabajado</mat-label>
           <mat-select formControlName="tiempoTrabajado">
@@ -600,10 +673,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Empresas (flores, separadas por coma)</mat-label>
+        <!-- Extra (flores) -->
+        <mat-form-field appearance="fill" class="campo-2">
+          <mat-label>Empresas de flores (separadas por coma)</mat-label>
           <input matInput formControlName="empresasFlores">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Área (flores)</mat-label>
           <mat-select formControlName="areaFloresSelect">
@@ -611,20 +686,25 @@
             <mat-option value="Otro">Otro</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="fill" *ngIf="formHojaDeVida.get('areaFloresSelect')?.value === 'Otro'">
+
+        <mat-form-field appearance="fill"
+                        *ngIf="formHojaDeVida.get('areaFloresSelect')?.value === 'Otro'">
           <mat-label>Área específica</mat-label>
           <input matInput formControlName="areaFloresOtro">
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Calificación rendimiento</mat-label>
           <mat-select formControlName="calificacionRendimiento">
             <mat-option *ngFor="let c of calificaciones" [value]="c">{{ c }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Motivo de la calificación</mat-label>
           <input matInput formControlName="razonCalificacion">
         </mat-form-field>
+
       </div>
       <ng-template #sinExp>
         <p class="mensaje-simple">No indicó experiencia laboral.</p>
@@ -637,34 +717,41 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 12. ENTREVISTA VIRTUAL -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="entrevistaVirtual" #formSection>
       <div class="title"><h2>Entrevista virtual</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Tiempo en la zona</mat-label>
           <mat-select formControlName="tiempoZona">
             <mat-option *ngFor="let d of duracionZona" [value]="d">{{ d }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Tipo de vivienda</mat-label>
           <mat-select formControlName="tipoVivienda">
             <mat-option *ngFor="let tv of tiposVivienda" [value]="tv">{{ tv }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>¿Estudia actualmente?</mat-label>
           <mat-select formControlName="estudiaActualmente">
             <mat-option *ngFor="let v of opcionSiNo" [value]="v">{{ v }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>Hijos a cargo</mat-label>
           <mat-select formControlName="hijosACargo">
             <mat-option *ngFor="let h of hijosPosibles" [value]="h">{{ h }}</mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="fill">
           <mat-label>¿Quién los cuida?</mat-label>
           <mat-select formControlName="quienLosCuida">
@@ -672,6 +759,7 @@
           </mat-select>
         </mat-form-field>
 
+        <!-- Con quién vive -->
         <div class="example-section" formArrayName="conQuienVive">
           <h3>¿Con quién vive?</h3>
           <div class="opcion-checkbox" *ngFor="let o of respuestasConQuienVive; let i = index">
@@ -679,12 +767,14 @@
           </div>
         </div>
 
+        <!-- Personas a cargo -->
         <div class="example-section" formArrayName="personasACargo">
           <h3>Personas a cargo</h3>
           <div class="opcion-checkbox" *ngFor="let o of respuestasPersonasACargo; let i = index">
             <mat-checkbox [formControlName]="i">{{ o }}</mat-checkbox>
           </div>
         </div>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -694,10 +784,13 @@
       </div>
     </section>
 
-    <!-- 13. FAMILIA -->
+    <!-- ========================================================= -->
+    <!-- 13. FAMILIA / SOCIO-EMOCIONAL -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="familia" #formSection>
       <div class="title"><h2>Familia</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>Relación familiar</mat-label>
           <mat-select formControlName="relacionFamiliar">
@@ -708,7 +801,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Motivos de felicitación laboral</mat-label>
           <input matInput formControlName="motivosFelicitacion">
         </mat-form-field>
@@ -721,20 +814,22 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" *ngIf="formHojaDeVida.get('conflictosLaborales')?.value === 'Si'">
+        <mat-form-field appearance="fill"
+                        *ngIf="formHojaDeVida.get('conflictosLaborales')?.value === 'Si'">
           <mat-label>Detalle conflictos</mat-label>
           <input matInput formControlName="conflictosDetalle">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Proyecto de vida (3 años)</mat-label>
           <input matInput formControlName="proyectoVida">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="campo-2">
           <mat-label>Experiencia significativa</mat-label>
           <input matInput formControlName="experienciaSignificativa">
         </mat-form-field>
+
       </div>
       <div class="section-footer">
         <button type="button" class="prev-inline" (click)="goPrev()">← Anterior</button>
@@ -744,10 +839,13 @@
       </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- 14. PUBLICIDAD -->
+    <!-- ========================================================= -->
     <section class="form-section" data-key="publicidad" #formSection>
       <div class="title"><h2>Publicidad</h2></div>
       <div class="datos">
+
         <mat-form-field appearance="fill">
           <mat-label>¿Cómo se enteró del empleo?</mat-label>
           <mat-select formControlName="medioPublicidadSelect">
@@ -760,10 +858,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" *ngIf="formHojaDeVida.get('medioPublicidadSelect')?.value === 'Otro'">
+        <mat-form-field appearance="fill"
+                        *ngIf="formHojaDeVida.get('medioPublicidadSelect')?.value === 'Otro'">
           <mat-label>Otro medio</mat-label>
           <input matInput formControlName="medioPublicidadOtro">
         </mat-form-field>
+
       </div>
 
       <div class="section-footer final">
