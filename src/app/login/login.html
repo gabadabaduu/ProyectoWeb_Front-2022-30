@@ -1,4 +1,7 @@
-<form (ngSubmit)="onSubmit()">
+<html>
+  <body>
+    <br>
+    <form (ngSubmit)="onSubmit()">
   <label for="username">Usuario:</label>
   <input type="text" id="username" name="username" [(ngModel)]="username" required>
 
@@ -7,3 +10,6 @@
 
   <li><a (click)="GotoFORM()">Iniciar Sesión</a></li>
 </form>
+  </body>
+
+</html>
