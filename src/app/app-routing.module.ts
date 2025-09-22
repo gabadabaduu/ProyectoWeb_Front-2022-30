@@ -22,11 +22,12 @@ import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 import { FormularioComponent } from './page/formulario/formulario.component';
+import { Login } from './login/login';
 
 
 //Rutas de  navegación
 const routes: Routes = [
-  
+
   {  path: '',   component: IndexComponent },
   {  path: 'home-portal-empleado', component: HomePortalEmpleadoComponent ,  pathMatch : 'full'},
   {  path: 'documentos-portal-empleado', component: DocumentosPortalEmpleadoComponent ,  pathMatch : 'full'},
@@ -48,9 +49,8 @@ const routes: Routes = [
   {  path: 'paso4', component: Paso4Component ,  pathMatch : 'full'},
   {  path: 'paso5', component: Paso5Component ,  pathMatch : 'full'},
   {  path: 'paso6', component: Paso6Component ,  pathMatch : 'full'},
+  {  path: 'login', component: Login ,  pathMatch : 'full'},
   {  path: 'formulario', component: FormularioComponent ,  pathMatch : 'full'  }
-
-  
 
 ];
 

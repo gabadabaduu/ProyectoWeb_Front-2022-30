@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     this._router.navigate(['registro']);
   }
   GotoFORM(){
-    this._router.navigate(['formulario']);
+    this._router.navigate(['login']);
   }
 
 }

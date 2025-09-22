@@ -74,6 +74,7 @@ import { Paso4Component } from './page/paso4/paso4.component';
 import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 import { FormularioComponent } from './page/formulario/formulario.component';
+import { Login } from './login/login';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { FormularioComponent } from './page/formulario/formulario.component';
     Paso5Component,
     Paso6Component,
     FormularioComponent,
+    Login,
     FormularioComponent
   ],
   imports: [
