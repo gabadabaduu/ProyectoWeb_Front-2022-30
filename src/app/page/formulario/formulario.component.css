@@ -1,9 +1,3 @@
-/* =========================================================
-   FORMULARIO DE CONTRATACIÓN - CSS UNIFICADO / CORREGIDO
-   Ajusta los tamaños cambiando el minmax() de .datos o
-   usando las utilidades (.campo-full, .campo-2, .campo-3)
-========================================================= */
-
 /* ---------- CONTENEDOR GENERAL ---------- */
 .contenedor {
   max-width: 1300px;
@@ -38,7 +32,7 @@
 .form-progress {
   position: sticky;
   top: 0;
-  z-index: 60;
+  z-index: 100;
   background: rgba(255,255,255,.9);
   backdrop-filter: blur(10px);
   padding: 14px 18px 12px;
@@ -119,14 +113,38 @@
   background: #ffffff;
   scroll-margin-top: 140px;
   box-shadow: 0 4px 18px -10px rgba(0,0,0,.08);
-  animation: fadeIn .55s ease;
+  /* Elimina animaciones, transiciones y cortinas: sección SIEMPRE estática */
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  transition: none !important;
+  animation: none !important;
 }
 
-@keyframes fadeIn {
-  from { opacity:0; transform: translateY(14px); }
-  to { opacity:1; transform: translateY(0); }
+/* Elimina todas las reglas de cortina, cerrada, abierta y keyframes */
+.form-section.cerrada,
+.form-section.abierta {
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  transition: none !important;
+  animation: none !important;
+  box-shadow: 0 4px 18px -10px rgba(0,0,0,.08);
+  padding: 42px 30px 48px;
+  margin-top: 42px;
 }
 
+@keyframes fadeIn {}
+@keyframes cortinaShow {}
+
+.form-section:hover,
+.form-section:focus-within {
+  max-height: none !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 18px -10px rgba(0,0,0,.08);
+}
+
+/* ---------- TÍTULO SECCIÓN ---------- */
 .form-section .title h2 {
   margin: -16px -16px 26px -16px;
   background: #8DD603;
@@ -139,10 +157,9 @@
 }
 
 /* ---------- GRID DE CAMPOS ---------- */
-/* Cambia 300px para hacer los campos más anchos o más angostos */
 .datos {
   display: grid;
-  gap: 20px 34px; /* row col */
+  gap: 20px 34px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: start;
   width: 100%;
@@ -160,7 +177,6 @@
   line-height: 1.25;
 }
 
-/* Wrapper */
 :host ::ng-deep .mat-mdc-text-field-wrapper {
   background:#fff !important;
   border:1px solid #cfd6dc;
@@ -180,7 +196,6 @@
   box-shadow:0 0 0 2px rgba(141,214,3,.35);
 }
 
-/* Label multiline */
 :host ::ng-deep .mdc-floating-label {
   white-space:normal !important;
   overflow:visible !important;
@@ -197,7 +212,6 @@
   color:#1c3114 !important;
 }
 
-/* Input / Select value */
 :host ::ng-deep .mat-mdc-input-element,
 :host ::ng-deep .mat-mdc-select-value {
   font-size:15px !important;
@@ -213,12 +227,10 @@
   font-weight:400;
 }
 
-/* Padding interno */
 :host ::ng-deep .mdc-text-field--filled .mdc-text-field__input {
   padding:16px 16px 10px 16px !important;
 }
 
-/* Select trigger */
 :host ::ng-deep .mat-mdc-select-trigger {
   padding:6px 14px 4px 14px;
   min-height:46px;
@@ -330,6 +342,7 @@ mat-form-field.compacto ::ng-deep .mdc-text-field--filled .mdc-text-field__input
 /* ---------- FOOTER SECCIÓN ---------- */
 .section-footer {
   margin-top:40px;
+  margin-left:900px;
   display:flex;
   justify-content:flex-end;
   gap:16px;
@@ -406,28 +419,98 @@ mat-form-field.compacto ::ng-deep .mdc-text-field--filled .mdc-text-field__input
   color:#666;
 }
 
-/* ---------- RESPONSIVE ---------- */
+.form-layout {
+  display: flex;
+  align-items: flex-start;
+   gap: 22px;
+}
+
+/* NAVBAR lateral */
+.form-navbar {
+  position: sticky;
+  top: 62px;
+  left: 0;
+  width: 240px;
+  min-height: 100vh;
+  background: #fff;
+  border-right: 1px solid #e3e6e9;
+  padding: 24px 0 0 0;
+  z-index: 90;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.form-navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 12px;
+}
+
+.form-navbar li {
+  margin-bottom: 14px;
+}
+
+.form-navbar button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f7f8fa;
+  border: none;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  cursor: pointer;
+  transition: background .22s, color .22s;
+  outline: none;
+}
+
+.form-navbar li.active button {
+  background: #8DD603;
+  color: #254303;
+  font-weight: 600;
+}
+
+.form-navbar li.completed button {
+  background: #e4f8d7;
+  color: #254303;
+}
+
+.form-navbar li.disabled button {
+  background: #eee;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.form-navbar .icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-navbar .check {
+  color: #8DD603;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+/* Responsive: si necesitas que se oculte en móvil, usa media query */
 @media (max-width: 900px) {
-  .datos {
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-    gap:18px 26px;
-  }
-  .form-section {
-    padding:40px 24px 44px;
-  }
+  .form-layout { flex-direction: column; }
+  .form-navbar { width: 100%; min-height: unset; border-right: none; border-bottom: 1px solid #e3e6e9; }
+  .datos { grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); gap:18px 26px; }
+  .form-section { padding:40px 24px 44px; }
 }
 
 @media (max-width: 640px) {
-  .datos {
-    grid-template-columns:1fr;
-  }
+  .datos { grid-template-columns:1fr; }
   .campo-2, .campo-3 { grid-column:1/-1; }
   .form-section { padding:36px 18px 40px; border-radius:22px; }
   .section-footer { flex-direction:column; }
-  .next-arrow, .prev-inline, .prev-arrow, .submit-btn {
-    width:100%;
-    justify-content:center;
-  }
+  .next-arrow, .prev-inline, .prev-arrow, .submit-btn { width:100%; justify-content:center; }
   .progress-dots .dot { width:12px; height:12px; }
 }
 

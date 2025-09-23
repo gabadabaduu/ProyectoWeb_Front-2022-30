@@ -15,6 +15,7 @@ import {
 interface SectionDef {
   key: string;
   label: string;
+  icon?: string;
   requiredControls: string[];
 }
 
@@ -28,23 +29,22 @@ export class FormularioComponent implements AfterViewInit {
   formHojaDeVida: FormGroup;
 
   // Meta de secciones (ajusta etiquetas según necesidad)
-  sectionMeta: SectionDef[] = [
-    { key: 'datosPersonales',     label: 'Datos personales',        requiredControls: ['numeroCedula','primerApellido','primerNombre','email','direccion'] },
-    { key: 'datosCedula',         label: 'Datos cédula',            requiredControls: ['fechaNacimiento','fechaExpedicion','rh','genero'] },
-    { key: 'datosEscolares',      label: 'Datos escolares',         requiredControls: ['nivelEscolaridad','nombreInstitucion'] },
-    { key: 'datosTallas',         label: 'Tallas',                  requiredControls: [] },
-    { key: 'datosFamiliares',     label: 'Contacto emergencia',     requiredControls: ['nombreFamiliar','parentescoFamiliar','telefonoFamiliar'] },
-    { key: 'datosPareja',         label: 'Pareja',                  requiredControls: [] },
-    { key: 'datosHijos',          label: 'Hijos',                   requiredControls: [] },
-    { key: 'datosPadre',          label: 'Padre',                   requiredControls: [] },
-    { key: 'datosMadre',          label: 'Madre',                   requiredControls: [] },
-    { key: 'datosReferencia',     label: 'Referencia',              requiredControls: ['nombreReferencia','telefonoReferencia'] },
-    { key: 'experienciaLaboral',  label: 'Experiencia laboral',     requiredControls: [] },
-    { key: 'entrevistaVirtual',   label: 'Entrevista virtual',      requiredControls: [] },
-    { key: 'familia',             label: 'Familia',                 requiredControls: [] },
-    { key: 'publicidad',          label: 'Publicidad',              requiredControls: ['medioPublicidadSelect'] },
-  ];
-
+ sectionMeta: SectionDef[] = [
+  { key: 'datosPersonales',     label: 'Datos personales',        icon: '🧑', requiredControls: ['numeroCedula','primerApellido','primerNombre','email','direccion'] },
+  { key: 'datosCedula',         label: 'Datos cédula',            icon: '🪪', requiredControls: ['fechaNacimiento','fechaExpedicion','rh','genero'] },
+  { key: 'datosEscolares',      label: 'Datos escolares',         icon: '🎓', requiredControls: ['nivelEscolaridad','nombreInstitucion'] },
+  { key: 'datosTallas',         label: 'Tallas',                  icon: '👕', requiredControls: [] },
+  { key: 'datosFamiliares',     label: 'Contacto emergencia',     icon: '📞', requiredControls: ['nombreFamiliar','parentescoFamiliar','telefonoFamiliar'] },
+  { key: 'datosPareja',         label: 'Pareja',                  icon: '❤️', requiredControls: [] },
+  { key: 'datosHijos',          label: 'Hijos',                   icon: '👶', requiredControls: [] },
+  { key: 'datosPadre',          label: 'Padre',                   icon: '👨', requiredControls: [] },
+  { key: 'datosMadre',          label: 'Madre',                   icon: '👩', requiredControls: [] },
+  { key: 'datosReferencia',     label: 'Referencia',              icon: '🔗', requiredControls: ['nombreReferencia','telefonoReferencia'] },
+  { key: 'experienciaLaboral',  label: 'Experiencia laboral',     icon: '💼', requiredControls: [] },
+  { key: 'entrevistaVirtual',   label: 'Entrevista virtual',      icon: '💻', requiredControls: [] },
+  { key: 'familia',             label: 'Familia',                 icon: '🏠', requiredControls: [] },
+  { key: 'publicidad',          label: 'Publicidad',              icon: '📣', requiredControls: ['medioPublicidadSelect'] },
+];
   currentIndex = 0;
   progressPercent = 0;
   startDate = new Date(1990, 0, 1);
@@ -267,22 +267,38 @@ export class FormularioComponent implements AfterViewInit {
     }
   }
 
-  goTo(i: number): void {
-    this.currentIndex = i;
-    this.scrollCurrent();
-    this.updateProgress();
-  }
-
   private scrollCurrent(): void {
     const el = this.sectionRefs?.toArray()[this.currentIndex]?.nativeElement;
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  isSectionValid(index: number): boolean {
-    const meta = this.sectionMeta[index];
-    if (!meta || meta.requiredControls.length === 0) return true;
-    return meta.requiredControls.every(c => this.formHojaDeVida.get(c)?.valid);
+ isSectionEnabled(i: number): boolean {
+  if (i < this.currentIndex) return true; // Puedes volver a anteriores
+  if (i === this.currentIndex) return true; // Puedes quedarte en la actual
+  if (i === this.currentIndex + 1 && this.isSectionValid(this.currentIndex)) return true; // Puedes avanzar si la actual está válida
+  return false; // Las demás están bloqueadas
+}
+
+/**
+ * Verifica si la sección está válida según los requiredControls definidos en sectionMeta.
+ */
+isSectionValid(index: number): boolean {
+  const meta = this.sectionMeta[index];
+  if (!meta || meta.requiredControls.length === 0) return true;
+  return meta.requiredControls.every(c => this.formHojaDeVida.get(c)?.valid);
+}
+
+/**
+ * Navega a la sección solo si está habilitada.
+ */
+goTo(i: number): void {
+  if (this.isSectionEnabled(i)) {
+    this.currentIndex = i;
+    this.scrollCurrent();
+    this.updateProgress();
   }
+}
+
 
   isWholeFormValid(): boolean {
     return this.formHojaDeVida.valid;

@@ -11,28 +11,27 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registrese.component.css']
 })
 export class RegistreseComponent implements OnInit {
+constructor(private router: Router) { }
+
   registroForm: FormGroup =  new FormGroup({});
   usuario: Usuario = new Usuario();
 
-  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
   createForm(){
-     
+
   }
 
   create(){
-    
+    this.router.navigate(['login']);
+
   }
   verifiedResponse(){
-    Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});    
+    Swal.fire({icon: 'success', title: 'Registro Exitoso', text: 'Usuario registrado correctamente'});
   }
 
-  
 
-
-  
 }
