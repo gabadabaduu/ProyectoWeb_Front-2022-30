@@ -11,6 +11,7 @@ import {
   Validators,
   FormArray
 } from '@angular/forms';
+import { UsuarioServicesService } from '../../services/usuario-services.service';
 
 interface SectionDef {
   key: string;
@@ -27,29 +28,9 @@ interface SectionDef {
 export class FormularioComponent implements AfterViewInit {
 
   formHojaDeVida: FormGroup;
+  usuarioForm: FormGroup;
 
-  // Meta de secciones (ajusta etiquetas según necesidad)
- sectionMeta: SectionDef[] = [
-  { key: 'datosPersonales',     label: 'Datos personales',        icon: '🧑', requiredControls: ['numeroCedula','primerApellido','primerNombre','email','direccion'] },
-  { key: 'datosCedula',         label: 'Datos cédula',            icon: '🪪', requiredControls: ['fechaNacimiento','fechaExpedicion','rh','genero'] },
-  { key: 'datosEscolares',      label: 'Datos escolares',         icon: '🎓', requiredControls: ['nivelEscolaridad','nombreInstitucion'] },
-  { key: 'datosTallas',         label: 'Tallas',                  icon: '👕', requiredControls: [] },
-  { key: 'datosFamiliares',     label: 'Contacto emergencia',     icon: '📞', requiredControls: ['nombreFamiliar','parentescoFamiliar','telefonoFamiliar'] },
-  { key: 'datosPareja',         label: 'Pareja',                  icon: '❤️', requiredControls: [] },
-  { key: 'datosHijos',          label: 'Hijos',                   icon: '👶', requiredControls: [] },
-  { key: 'datosPadre',          label: 'Padre',                   icon: '👨', requiredControls: [] },
-  { key: 'datosMadre',          label: 'Madre',                   icon: '👩', requiredControls: [] },
-  { key: 'datosReferencia',     label: 'Referencia',              icon: '🔗', requiredControls: ['nombreReferencia','telefonoReferencia'] },
-  { key: 'experienciaLaboral',  label: 'Experiencia laboral',     icon: '💼', requiredControls: [] },
-  { key: 'entrevistaVirtual',   label: 'Entrevista virtual',      icon: '💻', requiredControls: [] },
-  { key: 'familia',             label: 'Familia',                 icon: '🏠', requiredControls: [] },
-  { key: 'publicidad',          label: 'Publicidad',              icon: '📣', requiredControls: ['medioPublicidadSelect'] },
-];
-  currentIndex = 0;
-  progressPercent = 0;
-  startDate = new Date(1990, 0, 1);
-
-  // Catálogos
+  // --- CATÁLOGOS/SUPPORT ARRAYS ---
   estadosCiviles = [
     { codigo:'SO', descripcion:'Soltero(a)' },
     { codigo:'UL', descripcion:'Unión Libre' },
@@ -81,16 +62,39 @@ export class FormularioComponent implements AfterViewInit {
   respuestasPersonasACargo = ['Hijos','Padres','Pareja','Otros'];
   calificaciones = ['Excelente','Buena','Regular','Baja'];
 
-  // Previews archivos
+  // --- RESTO DE TU CLASE ---
+  sectionMeta: SectionDef[] = [
+    { key: 'datosPersonales',     label: 'Datos personales',        icon: '🧑', requiredControls: ['numeroCedula','primerApellido','primerNombre','email','direccion'] },
+    { key: 'datosCedula',         label: 'Datos cédula',            icon: '🪪', requiredControls: ['fechaNacimiento','fechaExpedicion','rh','genero'] },
+    { key: 'datosEscolares',      label: 'Datos escolares',         icon: '🎓', requiredControls: ['nivelEscolaridad','nombreInstitucion'] },
+    { key: 'datosTallas',         label: 'Tallas',                  icon: '👕', requiredControls: [] },
+    { key: 'datosFamiliares',     label: 'Contacto emergencia',     icon: '📞', requiredControls: ['nombreFamiliar','parentescoFamiliar','telefonoFamiliar'] },
+    { key: 'datosPareja',         label: 'Pareja',                  icon: '❤️', requiredControls: [] },
+    { key: 'datosHijos',          label: 'Hijos',                   icon: '👶', requiredControls: [] },
+    { key: 'datosPadre',          label: 'Padre',                   icon: '👨', requiredControls: [] },
+    { key: 'datosMadre',          label: 'Madre',                   icon: '👩', requiredControls: [] },
+    { key: 'datosReferencia',     label: 'Referencia',              icon: '🔗', requiredControls: ['nombreReferencia','telefonoReferencia'] },
+    { key: 'experienciaLaboral',  label: 'Experiencia laboral',     icon: '💼', requiredControls: [] },
+    { key: 'entrevistaVirtual',   label: 'Entrevista virtual',      icon: '💻', requiredControls: [] },
+    { key: 'familia',             label: 'Familia',                 icon: '🏠', requiredControls: [] },
+    { key: 'publicidad',          label: 'Publicidad',              icon: '📣', requiredControls: ['medioPublicidadSelect'] },
+  ];
+  currentIndex = 0;
+  progressPercent = 0;
+  startDate = new Date(1990, 0, 1);
+
   previsualizacionFrontal: string | null = null;
   previsualizacionPosterior: string | null = null;
 
-  @ViewChildren('formSection') sectionEls!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('formSection') sectionRefs!: QueryList<ElementRef<HTMLElement>>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private usuarioService: UsuarioServicesService
+  ) {
+    // ... tu código para construir formularios ...
     this.formHojaDeVida = this.fb.group({
-
-      // Datos personales
+      // ... campos igual que antes ...
       numeroCedula: ['', [Validators.required, Validators.minLength(5)]],
       primerApellido: ['', Validators.required],
       segundoApellido: [''],
@@ -105,70 +109,50 @@ export class FormularioComponent implements AfterViewInit {
       departamentoResidencia: [''],
       departamentoNacimiento: [''],
       nacionalidad: [''],
-
-      // Cédula / identidad
       fechaNacimiento: ['', Validators.required],
       fechaExpedicion: ['', Validators.required],
       rh: ['', Validators.required],
       genero: ['', Validators.required],
       manoDominante: [''],
-
-      // Escolares
       nivelEscolaridad: [''],
       nivelEscolaridadOtro: [''],
       nombreInstitucion: [''],
       anoFinalizacion: [''],
       tituloObtenido: [''],
       tituloObtenidoOtro: [''],
-
-      // Tallas
       tallaChaqueta: [''],
       tallaPantalon: [''],
       tallaCamisa: [''],
       tallaCalzado: [''],
-
-      // Contacto emergencia
       nombreFamiliar: [''],
       parentescoFamiliar: [''],
       telefonoFamiliar: [''],
       direccionFamiliar: [''],
       barrioFamiliar: [''],
       ocupacionFamiliar: [''],
-
-      // Pareja
       tienePareja: ['No'],
       nombrePareja: [''],
       ocupacionPareja: [''],
       direccionPareja: [''],
       telefonoPareja: [''],
       barrioPareja: [''],
-
-      // Hijos
       numeroHijos: [0],
       hijos: this.fb.array([]),
-
-      // Padre
       padreVivo: ['No'],
       nombrePadre: [''],
       ocupacionPadre: [''],
       direccionPadre: [''],
       telefonoPadre: [''],
       barrioPadre: [''],
-
-      // Madre
       madreViva: ['No'],
       nombreMadre: [''],
       ocupacionMadre: [''],
       direccionMadre: [''],
       telefonoMadre: [''],
       barrioMadre: [''],
-
-      // Referencia
       nombreReferencia: [''],
       telefonoReferencia: [''],
       ocupacionReferencia: [''],
-
-      // Experiencia laboral
       tieneExperiencia: ['No'],
       empresaAnterior: [''],
       direccionEmpresa: [''],
@@ -184,8 +168,6 @@ export class FormularioComponent implements AfterViewInit {
       areaFloresOtro: [''],
       calificacionRendimiento: [''],
       razonCalificacion: [''],
-
-      // Entrevista / entorno
       tiempoZona: [''],
       tipoVivienda: [''],
       estudiaActualmente: ['No'],
@@ -193,18 +175,21 @@ export class FormularioComponent implements AfterViewInit {
       quienLosCuida: [''],
       conQuienVive: this.fb.array(this.respuestasConQuienVive.map(() => this.fb.control(false))),
       personasACargo: this.fb.array(this.respuestasPersonasACargo.map(() => this.fb.control(false))),
-
-      // Familia
       relacionFamiliar: [''],
       motivosFelicitacion: [''],
       conflictosLaborales: ['No'],
       conflictosDetalle: [''],
       proyectoVida: [''],
       experienciaSignificativa: [''],
-
-      // Publicidad
       medioPublicidadSelect: [''],
       medioPublicidadOtro: [''],
+    });
+
+    // Formulario de usuario para registro/login
+    this.usuarioForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      // Puedes agregar campos como nombre, etc.
     });
 
     // Sincronizar hijos dinámicos
@@ -217,12 +202,17 @@ export class FormularioComponent implements AfterViewInit {
     this.updateProgress();
   }
 
+  // --- AGREGA ESTE MÉTODO PARA ARREGLAR LOS ERRORES DE scrollCurrent ---
+  private scrollCurrent(): void {
+    const el = this.sectionRefs?.toArray()[this.currentIndex]?.nativeElement;
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   // ---------- Getters ----------
   get hijosArray(): FormArray {
     return this.formHojaDeVida.get('hijos') as FormArray;
   }
 
-  // ---------- Hijos dinámicos ----------
   private buildHijoGroup(): FormGroup {
     return this.fb.group({
       nombre: [''],
@@ -248,9 +238,6 @@ export class FormularioComponent implements AfterViewInit {
     }
   }
 
-  // ---------- Navegación secciones ----------
-  @ViewChildren('formSection') private sectionRefs!: QueryList<ElementRef<HTMLElement>>;
-
   goNext(): void {
     if (this.currentIndex < this.sectionMeta.length - 1) {
       this.currentIndex++;
@@ -267,38 +254,26 @@ export class FormularioComponent implements AfterViewInit {
     }
   }
 
-  private scrollCurrent(): void {
-    const el = this.sectionRefs?.toArray()[this.currentIndex]?.nativeElement;
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  goTo(i: number): void {
+    if (this.isSectionEnabled(i)) {
+      this.currentIndex = i;
+      this.scrollCurrent();
+      this.updateProgress();
+    }
   }
 
- isSectionEnabled(i: number): boolean {
-  if (i < this.currentIndex) return true; // Puedes volver a anteriores
-  if (i === this.currentIndex) return true; // Puedes quedarte en la actual
-  if (i === this.currentIndex + 1 && this.isSectionValid(this.currentIndex)) return true; // Puedes avanzar si la actual está válida
-  return false; // Las demás están bloqueadas
-}
-
-/**
- * Verifica si la sección está válida según los requiredControls definidos en sectionMeta.
- */
-isSectionValid(index: number): boolean {
-  const meta = this.sectionMeta[index];
-  if (!meta || meta.requiredControls.length === 0) return true;
-  return meta.requiredControls.every(c => this.formHojaDeVida.get(c)?.valid);
-}
-
-/**
- * Navega a la sección solo si está habilitada.
- */
-goTo(i: number): void {
-  if (this.isSectionEnabled(i)) {
-    this.currentIndex = i;
-    this.scrollCurrent();
-    this.updateProgress();
+  isSectionEnabled(i: number): boolean {
+    if (i < this.currentIndex) return true;
+    if (i === this.currentIndex) return true;
+    if (i === this.currentIndex + 1 && this.isSectionValid(this.currentIndex)) return true;
+    return false;
   }
-}
 
+  isSectionValid(index: number): boolean {
+    const meta = this.sectionMeta[index];
+    if (!meta || meta.requiredControls.length === 0) return true;
+    return meta.requiredControls.every(c => this.formHojaDeVida.get(c)?.valid);
+  }
 
   isWholeFormValid(): boolean {
     return this.formHojaDeVida.valid;
@@ -339,11 +314,43 @@ goTo(i: number): void {
     this.previsualizacionPosterior = null;
   }
 
+  // ---------- Registro de Usuario ----------
+  registrarUsuario(): void {
+    this.usuarioService.registrarUsuario(this.usuarioForm.value)
+      .subscribe({
+        next: (resp: any) => {
+          alert('Usuario registrado correctamente');
+          this.usuarioService.setUsuarioLogueado(resp.usuario);
+        },
+        error: (err: any) => { alert('Error al registrar usuario'); }
+      });
+  }
+
+  // ---------- Login de Usuario ----------
+  loginUsuario(): void {
+    this.usuarioService.loginUsuario(this.usuarioForm.value)
+      .subscribe({
+        next: (resp: any) => {
+          alert('Login correcto');
+          if (resp.token) {
+            localStorage.setItem('token', resp.token);
+          }
+          this.usuarioService.setUsuarioLogueado(resp.usuario);
+        },
+        error: (err: any) => { alert('Error al hacer login'); }
+      });
+  }
+
+  // ---------- Logout ----------
+  logoutUsuario(): void {
+    this.usuarioService.logoutUsuario();
+    alert('Sesión cerrada');
+  }
+
   // ---------- Submit ----------
   onSubmit(): void {
     if (!this.formHojaDeVida.valid) {
       this.formHojaDeVida.markAllAsTouched();
-      // saltar a primera sección inválida si aplica
       const idx = this.sectionMeta.findIndex(s =>
         s.requiredControls.some(ctrl => this.formHojaDeVida.get(ctrl)?.invalid)
       );
@@ -354,10 +361,20 @@ goTo(i: number): void {
       }
       return;
     }
-    console.log('Formulario válido. Payload:', this.formHojaDeVida.value);
+    const usuario = this.usuarioService.getUsuarioLogueado();
+    const dataEnviar = { ...this.formHojaDeVida.value, usuarioId: usuario?.id || null };
+
+    this.usuarioService.enviarFormularioContratacion(dataEnviar)
+      .subscribe({
+        next: (resp: any) => {
+          alert('Formulario enviado con éxito');
+        },
+        error: (err: any) => {
+          alert('Error al enviar el formulario');
+        }
+      });
   }
 
-  // ---------- Utilidad debug ----------
   ver(): void {
     console.log('Valores:', this.formHojaDeVida.value);
     console.log('Validez:', this.formHojaDeVida.valid);

@@ -75,7 +75,8 @@ import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 import { FormularioComponent } from './page/formulario/formulario.component';
 import { Login } from './login/login';
-
+import { Changepassword } from './changepassword/changepassword';
+import { Newpassword } from './newpassword/newpassword';
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,7 +108,8 @@ import { Login } from './login/login';
     Paso6Component,
     FormularioComponent,
     Login,
-    FormularioComponent
+    Changepassword,
+    Newpassword
   ],
   imports: [
     BrowserModule,

@@ -30,4 +30,8 @@ constructor( private _router: Router) { }
     this._router.navigate(['formulario']);
   }
 
+   Gotochangepassword(){
+    this._router.navigate(['changepassword']);
+  }
+
 }

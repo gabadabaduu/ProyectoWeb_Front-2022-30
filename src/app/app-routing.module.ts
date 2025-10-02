@@ -23,6 +23,8 @@ import { Paso5Component } from './page/paso5/paso5.component';
 import { Paso6Component } from './page/paso6/paso6.component';
 import { FormularioComponent } from './page/formulario/formulario.component';
 import { Login } from './login/login';
+import { Changepassword } from './changepassword/changepassword';
+import { Newpassword } from './newpassword/newpassword';
 
 
 //Rutas de  navegación
@@ -50,6 +52,8 @@ const routes: Routes = [
   {  path: 'paso5', component: Paso5Component ,  pathMatch : 'full'},
   {  path: 'paso6', component: Paso6Component ,  pathMatch : 'full'},
   {  path: 'login', component: Login ,  pathMatch : 'full'},
+  { path: 'changepassword', component: Changepassword, pathMatch: 'full' },
+  { path: 'newpassword', component: Newpassword, pathMatch: 'full' },
   {  path: 'formulario', component: FormularioComponent ,  pathMatch : 'full'  }
 
 ];
