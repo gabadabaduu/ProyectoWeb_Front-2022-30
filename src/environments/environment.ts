@@ -3,8 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    apiUrl: 'http://10.10.10.60:4545' // URL del backend para desarrollo
 };
-
-
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

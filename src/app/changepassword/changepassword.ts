@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// Update the import path to match the actual location and filename of the service
 import { UsuarioServicesService } from '../services/usuario-services.service';
 
 @Component({
@@ -9,9 +8,7 @@ import { UsuarioServicesService } from '../services/usuario-services.service';
   styleUrls: ['./changepassword.css']
 })
 export class Changepassword {
-
-
-    recuperarForm: FormGroup;
+  recuperarForm: FormGroup;
   enviado: boolean = false;
   error: string = "";
 
@@ -26,16 +23,22 @@ export class Changepassword {
 
   solicitarRecuperacion(): void {
     if (this.recuperarForm.valid) {
-      this.usuarioService.solicitarRecuperacionPassword(this.recuperarForm.value.email)
-        .subscribe({
-          next: () => {
+      const email = this.recuperarForm.value.email;
+      this.usuarioService.buscarEmail(email).subscribe({
+        next: (res) => {
+          if (res.existe) {
             this.enviado = true;
             this.error = "";
-          },
-          error: (err) => {
-            this.error = "No se pudo enviar el correo. Verifica el email.";
+          } else {
+            this.error = "El correo no está registrado.";
+            this.enviado = false;
           }
-        });
+        },
+        error: () => {
+          this.error = "Error al contactar al servidor. Intenta de nuevo.";
+          this.enviado = false;
+        }
+      });
     }
   }
 }

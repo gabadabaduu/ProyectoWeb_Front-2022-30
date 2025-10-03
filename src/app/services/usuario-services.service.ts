@@ -1,61 +1,60 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
-import { catchError } from 'rxjs/operators';
-import { throwError, Observable } from 'rxjs';
-import { Usuario } from 'src/app/model/usuario';
-import { BehaviorSubject, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UsuarioServicesService {
-  private apiUrlContratacion = 'http://localhost:3000/api/contratacion';
-  private apiUrlUsuario = 'http://localhost:3000/api/usuario';
-
-  private usuarioLogueadoSubject = new BehaviorSubject<any>(null);
-  usuarioLogueado$ = this.usuarioLogueadoSubject.asObservable();
+  private api = environment.apiUrl + '/contratacion';
 
   constructor(private http: HttpClient) {}
 
-  // 1. Crear usuario nuevo
-  registrarUsuario(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrlUsuario}/register`, data);
+  // REGISTRO DE USUARIO
+  registrarUsuario(datos: {nombre: string, apellido: string, correo: string, contrasena: string}): Observable<any> {
+    return this.http.post(`${this.api}/registro-candidato/`, {
+      primer_nombre: datos.nombre,
+      primer_apellido: datos.apellido,
+      email: datos.correo,
+      password: datos.contrasena
+    });
   }
 
-  // 2. Log in usuario
-  loginUsuario(credentials: { email: string, password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrlUsuario}/login`, credentials);
+  // LOGIN DE USUARIO
+  loginUsuario(datos: {correo: string, contrasena: string}): Observable<any> {
+    // El backend espera { email, password }
+    return this.http.post(`${this.api}/login-candidato/`, {
+      email: datos.correo,
+      password: datos.contrasena
+    });
   }
 
-  // 3. Log out usuario (ejemplo: solo borra el token del LocalStorage)
-  logoutUsuario(): void {
-    localStorage.removeItem('token');
-    this.usuarioLogueadoSubject.next(null);
+  // BUSCAR EMAIL
+  buscarEmail(email: string): Observable<any> {
+    return this.http.post(`${this.api}/buscar-email-candidato/`, { email });
   }
 
-  // 4. Enviar datos del formulario y guardar la info asociada al usuario
+  // CAMBIAR CONTRASEÑA POR EMAIL
+  cambiarContrasena(email: string, nueva_contrasena: string): Observable<any> {
+    // Asegúrate que la URL coincida con la de tu backend, puede ser 'cambiar-contrasena-candidato-email'
+    return this.http.post(`${this.api}/cambiar-contrasena-candidato-email/`, { email, nueva_contrasena });
+  }
+
+  // Sesión local (opcional)
+  setUsuarioLogueado(usuario: any) {
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+  }
+
+  getUsuarioLogueado() {
+    const u = localStorage.getItem('usuario');
+    return u ? JSON.parse(u) : null;
+  }
+
+  logoutUsuario() {
+    localStorage.removeItem('usuario');
+  }
+
   enviarFormularioContratacion(data: any): Observable<any> {
-    // Puedes incluir el id del usuario, token o email si lo necesitas
-    return this.http.post(`${this.apiUrlContratacion}/registro`, data);
-  }
-
-  // 5. Guardar usuario autenticado en el servicio (ejemplo para usar en otros componentes)
-  setUsuarioLogueado(usuario: any): void {
-    this.usuarioLogueadoSubject.next(usuario);
-  }
-
-  getUsuarioLogueado(): any {
-    return this.usuarioLogueadoSubject.value;
-  }
-
-    // Solicitud de recuperación de contraseña
-  solicitarRecuperacionPassword(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrlUsuario}/request-password-reset`, { email });
-  }
-
-  // Cambiar contraseña usando el token
-  cambiarPassword(token: string, newPassword: string): Observable<any> {
-    return this.http.post(`${this.apiUrlUsuario}/reset-password`, { token, newPassword });
+    // Asegúrate que el endpoint exista en tu backend
+    return this.http.post(`${this.api}/formulario-contratacion/`, data);
   }
 }
